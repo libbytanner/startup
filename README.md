@@ -1,8 +1,7 @@
-# Your startup name here
-
+# Vibe Check
 [My Notes](notes.md)
 
-A brief description of the application here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Vibe Check is an app that allows users to select and rate albums, and provide additional thoughts and opinions on it. Other users can view their ratings, and comment on them.
 
 
 > [!NOTE]
@@ -26,7 +25,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+My music library has grown to be a mess over the years as I have discovered more and more music. I will find music in my library that I'm not sure I ever actually listened to. With Vibe Check, users can rate and review albums they have listened to, as well as see what others are enjoying.
 
 ### Design
 
@@ -43,7 +42,7 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
+- 
 - Describe your key feature
 - Describe your key feature
 
