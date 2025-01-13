@@ -19,7 +19,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [ ] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
-- [ ] Description of key features
+- [x] Description of key features
 - [ ] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
@@ -29,7 +29,7 @@ My music library has grown to be a mess over the years as I have discovered more
 
 ### Design
 
-![Design image](placeholder.png)
+![Design sketch for each 3 screens](placeholder.png)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -46,7 +46,7 @@ sequenceDiagram
 - Ability to search for albums
 - Ability to give albums a rating
 - Ability to view recent ratings from other users
-- Describe your key feature
+- Ability to view your reviews. 
 
 ### Technologies
 
@@ -54,8 +54,8 @@ I am going to use the required technologies in the following ways.
 
 - **HTML** - Will use HTML for structure of the web app, there will be 3 HTML pages. One for login, one for recent reviews, one for adding a review. 
 - **CSS** - Will be used for styling
-- **React** - Description here
-- **Service** - Will use Spotify's API to search for albums, and retrieve information about them, including their artist, and track titles. 
+- **React** - Will be used for breaking layout into components, and for making the app interactive with buttons. 
+- **Service** - Will use Spotify's API (external service) to search for albums, and retrieve information about them, including their artist, and track titles. 
 - **DB/Login** - Stores users and reviews in a database, and authenticates users when they log in. 
 - **WebSocket** - Users are able to see reviews from other users. 
 
