@@ -1,7 +1,7 @@
 # Vibe Check
 [My Notes](notes.md)
 
-Vibe Check is an app that allows users to select and rate albums, and provide additional thoughts and opinions on it. Other users can view ratings, and comment on them.
+Vibe Check is an app that allows users to select and rate albums, as well as view recent reviews from other users.
 
 
 > [!NOTE]
