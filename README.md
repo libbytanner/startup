@@ -1,7 +1,7 @@
 # Vibe Check
 [My Notes](notes.md)
 
-Vibe Check is an app that allows users to select and rate albums, and provide additional thoughts and opinions on it. Other users can view their ratings, and comment on them.
+Vibe Check is an app that allows users to select and rate albums, and provide additional thoughts and opinions on it. Other users can view ratings, and comment on them.
 
 
 > [!NOTE]
@@ -18,7 +18,7 @@ Vibe Check is an app that allows users to select and rate albums, and provide ad
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
+- [x] A concise and compelling elevator pitch
 - [ ] Description of key features
 - [ ] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
@@ -42,20 +42,22 @@ sequenceDiagram
 
 ### Key features
 
-- 
-- Describe your key feature
+- Secure login
+- Ability to search for albums
+- Ability to give albums a rating
+- Ability to view recent ratings from other users
 - Describe your key feature
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
+- **HTML** - Will use HTML for structure of the web app, there will be 3 HTML pages. One for login, one for recent reviews, one for adding a review. 
+- **CSS** - Will be used for styling
 - **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **Service** - Will use Spotify's API to search for albums, and retrieve information about them, including their artist, and track titles. 
+- **DB/Login** - Stores users and reviews in a database, and authenticates users when they log in. 
+- **WebSocket** - Users are able to see reviews from other users. 
 
 ## 🚀 AWS deliverable
 
