@@ -31,7 +31,7 @@ My music library has grown to be a mess over the years as I have discovered more
 
 ![Design sketch for each 3 screens](placeholder.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Sketch of the basic design.
 
 ```mermaid
 sequenceDiagram
@@ -53,8 +53,8 @@ sequenceDiagram
 I am going to use the required technologies in the following ways.
 
 - **HTML** - Will use HTML for structure of the web app, there will be 3 HTML pages. One for login, one for recent reviews, one for adding a review. 
-- **CSS** - Will be used for styling
-- **React** - Will be used for breaking layout into components, and for making the app interactive with buttons. 
+- **CSS** - Will be used for styling HTML elements, adding a cohesive color scheme, and vibe to the whole app.
+- **React** - Used for buttons, adding functionality 
 - **Service** - Will use Spotify's API (external service) to search for albums, and retrieve information about them, including their artist, and track titles. 
 - **DB/Login** - Stores users and reviews in a database, and authenticates users when they log in. 
 - **WebSocket** - Users are able to see reviews from other users. 
