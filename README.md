@@ -1,7 +1,7 @@
-# Vibe Check
+# SoundScope
 [My Notes](notes.md)
 
-Vibe Check is an app that allows users to select and rate albums, as well as view recent reviews from other users.
+SoundScope is an app that allows users to select and rate albums, as well as view recent reviews from other users.
 
 
 > [!NOTE]
@@ -17,15 +17,15 @@ Vibe Check is an app that allows users to select and rate albums, as well as vie
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
+- [x] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
 - [x] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-My music library has grown to be a mess over the years as I have discovered more and more music. I will find music in my library that I'm not sure I ever actually listened to. With Vibe Check, users can rate and review albums they have listened to, as well as see what others are enjoying.
+My music library has grown to be a mess over the years as I have discovered more and more music. I will find music in my library that I'm not sure I ever actually listened to. With SoundScope, users can rate and review albums they have listened to, as well as see what others are enjoying.
 
 ### Design
 
@@ -33,12 +33,6 @@ My music library has grown to be a mess over the years as I have discovered more
 
 Sketch of the basic design.
 
-```mermaid
-sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
-```
 
 ### Key features
 
