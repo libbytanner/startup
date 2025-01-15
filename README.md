@@ -29,7 +29,7 @@ My music library has grown to be a mess over the years as I have discovered more
 
 ### Design
 
-![Design sketch for each 3 screens](placeholder.png)
+![Design sketch for each 3 screens](/Users/libbytanner/Downloads/IMG_0787.jpg)
 
 Sketch of the basic design.
 
