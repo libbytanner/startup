@@ -19,10 +19,10 @@ To enable HTTPS and allow a secure a connection, use Caddy to :80 and yourdomain
 
 Use commands:
 -shells into production environment server
-> ssh -i [key pair file] ubuntu@[domainname]
+`ssh -i [key pair file] ubuntu@[domainname]`
 -Edit Caddy's configuration
->cd ~
->vi Caddyfile
+`cd ~`
+`vi Caddyfile`
 
 ## HTML Notes
 
