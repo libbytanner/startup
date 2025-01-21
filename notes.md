@@ -27,4 +27,16 @@ Use commands:
 
 ## HTML Notes
 
+Structural language -- used for accessibility, so make sure you use it properly
 
+The head does not get rendered - the body does
+
+HTML is like a tree -- body and head are different nodes  
+
+Prefer relative over absolute links  
+
+div -- division  
+span -- inline division  
+
+Characters & entities -- to render an &, use &amp, ' &apos  
+Input -- form element. 
