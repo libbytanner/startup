@@ -40,3 +40,8 @@ span -- inline division
 
 Characters & entities -- to render an &, use &amp, ' &apos  
 Input -- form element. 
+
+## CSS Notes
+
+Prefers id's over classes
+put a border around all elements (*) for debugging
