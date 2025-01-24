@@ -17,13 +17,18 @@
         </header>
 
         <main>
-    
-            <h1>Album Title</h1>
-            <img src="placeholder.png">
+            <div id="albumInfo">
+                <h1>Album Title</h1>
+                <img src="placeholder.png">
+                <p>Artist</p>
+                <p>Year</p>
+            </div>
             <form>
-                <label for="rating">Rating</label>
-                <input type="range" id="rating" name="varRange" step="0.5"></range>
-                <output id="rangeOutput" for="rating">0</output>
+                <div id="range">
+                    <label for="rating">Rating</label>
+                    <input type="range" id="rating" name="varRange" step="0.5"></range>
+                    <output id="rangeOutput" for="rating">0</output>
+                </div>
                 <button type="submit">Submit Rating</button>
             </form>
         </main>
