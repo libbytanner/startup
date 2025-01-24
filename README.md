@@ -58,13 +58,13 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [ ] **HTML pages** - I did not complete this part of the deliverable.
 - [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
+- [x] **Links** - The navigation has links to other html pages. 
+- [x] **Text** - About page includes text about the idea, and each element contains text. 
+- [x] **3rd party API placeholder** - The artist, album title, and album cover will be found using the Spotify API, and the search bar will search the Spotify catalog.  
 - [x] **Images** - I inserted the placeholder image, since the real images will come from the 3rd party API.
 - [x] **Login placeholder** - I added fields for an email and password, as well as buttons to log in or create an account. 
-- [ ] **DB data placeholder** - Login/user info will be stored in a database allowing authenication.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **DB data placeholder** - Login/user info will be stored in a database allowing authenication.
+- [x] **WebSocket placeholder** - This is the recent reviews page, where users can see in real time when another user submits a review. 
 
 ## 🚀 CSS deliverable
 
