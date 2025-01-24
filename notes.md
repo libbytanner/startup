@@ -26,7 +26,7 @@ Use commands:
 `vi Caddyfile`
 
 ## HTML Notes
-
+class notes:  
 Structural language -- used for accessibility, so make sure you use it properly
 
 The head does not get rendered - the body does
@@ -39,9 +39,9 @@ div -- division
 span -- inline division  
 
 Characters & entities -- to render an &, use &amp, ' &apos  
-Input -- form element. 
+Input -- form element.
 
 ## CSS Notes
 
-Prefers id's over classes
+Prefers id's over classes  
 put a border around all elements (*) for debugging
