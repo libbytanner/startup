@@ -56,11 +56,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - I made 4 html pages -- a login page, a page for recent ratings, a page for the users ratings, a page for rating an album, and an about page. The user ratings and recent ratings page follow essentially the same format. 
+- [x] **Proper HTML element usage** - I used elements in my header, and body to organize my structure. I used input elements, and created some div elements to help when it comes to styling and functionality. 
 - [x] **Links** - The navigation has links to other html pages. 
 - [x] **Text** - About page includes text about the idea, and each element contains text. 
-- [x] **3rd party API placeholder** - The artist, album title, and album cover will be found using the Spotify API, and the search bar will search the Spotify catalog.  
+- [x] **3rd party API placeholder** - The artist, album title, and album cover will be found using the Spotify API, and the search bar will search the Spotify catalog. For now I just put placeholder images and values.  
 - [x] **Images** - I inserted the placeholder image, since the real images will come from the 3rd party API.
 - [x] **Login placeholder** - I added fields for an email and password, as well as buttons to log in or create an account. 
 - [x] **DB data placeholder** - Login/user info will be stored in a database allowing authenication.
