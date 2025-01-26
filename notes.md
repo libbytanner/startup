@@ -45,7 +45,9 @@ delivereable notes:
 `<link rel="icon" href="icon.ico">`  
 From what I'm aware, this is supposed to enable you to change the icon that appears on the tab with your website, but I couldn't quite get it to work. 
 
-`<hr>` and `<br>` can help create structure visually when still in the HTML phase
+`<hr>` and `<br>` can help create structure visually when still in the HTML phase  
+
+I've found it kind of hard to focus solely on the structure, but I think it helped to try to think of doing everything vertically. 
 
 ## CSS Notes
 
