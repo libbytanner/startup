@@ -57,3 +57,5 @@ put a border around all elements (*) for debugging
 Classes are really useful when you want several objects to have the same properties.  
 
 Justify is used when you are working with a flex or grid element. This took me a while to figure out for some reason. 
+
+To override set colors from a bootstrap element, just put !important next to the declaration in your css. Cool!
