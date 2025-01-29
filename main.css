@@ -7,7 +7,6 @@
 }
 
 body {
-    background-color: #b3b3b3;
     display: flex;
     flex-direction: column;
     min-width: 375px;
@@ -15,7 +14,7 @@ body {
 
 footer {
     display: flex;
-    background-color: #212121;
+    background-color: #cccccc;
     width: 100vw;
     flex: 0 30px;
     justify-content: space-between;
@@ -37,22 +36,12 @@ header {
     justify-items: right;
 }
 
-.container {
-    padding: 2em;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
-    grid-gap: 1em;
-    justify-content: center;
-}
-.card {
-    width: 13em;
-    border-radius: 0;
-}
-
 main {
     min-height: 83vh;
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+    color: #cccccc;
+    background-color: #333333;
 }
 
 nav {
@@ -60,7 +49,7 @@ nav {
 }
 
 .login {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -68,9 +57,4 @@ nav {
     color: white;
     border-radius: 5em;
     padding: 2em;
-}
-
-.bg-secondary-color {
-    color: #cccccc;
-    background-color: #505050;
 }
