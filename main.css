@@ -1,5 +1,9 @@
-* {
-    font-family: helvetica;
+
+.space-grotesk {
+  font-family: "Space Grotesk", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
@@ -29,10 +33,9 @@ h1 {
 }
 
 #spotifyCredit {
-    display: inline-flex;
+    display: flex;
     justify-content: right;
     padding: 1em;
-    align-items: center;    
 }
 
 .container {
