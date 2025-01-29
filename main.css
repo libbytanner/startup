@@ -50,7 +50,7 @@ nav {
     align-items: center;
     background-color: #cccccc;
     color: white;
-    border-radius: 5em;
+    border-radius: 15px;
     padding: 2em;
 }
 
@@ -60,10 +60,19 @@ nav {
 
 #userInput {
     display:block;
-    justify-content:center;
+    justify-self:center;
 }
 
 #albumInfo {
     display: flex;
     justify-content: center;
+    gap: 3em;
+}
+
+#albumCover {
+    min-width: 300px
+}
+
+.form-range{
+    max-width: 600px;
 }

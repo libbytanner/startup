@@ -49,8 +49,8 @@
                 <img id="albumCover" src="placeholder.png"/>
                 <div>
                     <h1>Album Title</h1>
-                    <p>Artist: <span id="artistName">Artist Name</span></p>
-                    <p>Year: <span id="year">2025</span></p>
+                    <h3>Artist: <span id="artistName">Artist Name</span></h3>
+                    <h3>Year: <span id="year">2025</span></h3>
                 </div>
             </div>
             <br>
@@ -61,10 +61,10 @@
                 </div>
                 <div id="ratingSlider">
                     <label for="rating">Rating</label>
-                    <input type="range" id="rating" name="varRange" step="0.5"></range>
+                    <input type="range" class="form-range" min="1" max="10" step="0.5" name="varRange" step="0.5"></range>
                     <output id="rangeOutput" for="rating">0</output>
                 </div>
-                <button type="submit">Submit Rating</button>
+                <button type="submit" class="btn btn-primary">Submit Rating</button>
             </form>
         </main>
 

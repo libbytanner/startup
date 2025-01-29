@@ -53,3 +53,7 @@ I've found it kind of hard to focus solely on the structure, but I think it help
 
 Prefers id's over classes  
 put a border around all elements (*) for debugging
+
+Classes are really useful when you want several objects to have the same properties.  
+
+Justify is used when you are working with a flex or grid element. This took me a while to figure out for some reason. 
