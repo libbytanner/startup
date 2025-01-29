@@ -10,3 +10,8 @@
     border-radius: 0;
 }
 
+@media ((orientation: portrait) and (max-width:600px)){
+    .container {
+        grid-template-columns: repeat(1fr minmax(200px, 250px));
+    }
+}

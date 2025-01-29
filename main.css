@@ -33,10 +33,10 @@ header {
 
 main {
     min-height: 83vh;
-    display: flex;
     justify-content: space-around;
     color: #cccccc;
     background-color: #333333;
+    padding: 2em;
 }
 
 nav {
@@ -56,4 +56,14 @@ nav {
 
 .navlink {
     color: #1ed760;
+}
+
+#userInput {
+    display:block;
+    justify-content:center;
+}
+
+#albumInfo {
+    display: flex;
+    justify-content: center;
 }

@@ -46,13 +46,15 @@
 
         <main>
             <div id="albumInfo">
-                <h1>Album Title</h1>
-                <img src="placeholder.png">
-                <p>Artist <span id="artistName">Artist Name</span></p>
-                <p>Year: <span id="year">2025</span></p>
+                <img id="albumCover" src="placeholder.png"/>
+                <div>
+                    <h1>Album Title</h1>
+                    <p>Artist: <span id="artistName">Artist Name</span></p>
+                    <p>Year: <span id="year">2025</span></p>
+                </div>
             </div>
             <br>
-            <form>
+            <form id="userInput">
                 <div id="nameField">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="varName" placeholder="Name" />
