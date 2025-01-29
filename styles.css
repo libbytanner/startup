@@ -38,5 +38,5 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
     grid-auto-rows: 250px;
-    grid-gap: minmax(.5em, 4em)
+    grid-gap: minmax(.5em, 4em);
 }
