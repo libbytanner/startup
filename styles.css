@@ -1,0 +1,20 @@
+* {
+    font-family: helvetica;
+}
+
+footer {
+    background-color: #cccccc
+}
+
+.search {
+    float: right;
+}
+header {
+    background-color: #302f36;
+    padding: 1em;
+    width:100vw;
+}
+
+h1 {
+    display: inline-flex;
+}
