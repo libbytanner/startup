@@ -49,8 +49,17 @@ h1 {
 
 main {
     min-height: 75vh;
+    display: flex;
+    justify-content: space-around
 }
 
 nav {
     height: 3em;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
