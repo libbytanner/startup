@@ -20,11 +20,6 @@ footer {
     justify-content: space-between;
 }
 
-.search {
-    float: right;
-    margin: 2em;
-}
-
 header {
     background-color: #181818;
     padding: 1em;
@@ -61,8 +56,4 @@ nav {
 
 .navlink {
     color: #1ed760;
-}
-
-#searchbar {
-    border-radius: 1em;
 }
