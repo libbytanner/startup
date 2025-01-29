@@ -7,14 +7,18 @@
 }
 
 body {
+    background-color: #b3b3b3;
     display: flex;
     flex-direction: column;
     min-width: 375px;
   }
 
 footer {
-    background-color: #cccccc;
+    display: flex;
+    background-color: #212121;
     width: 100vw;
+    flex: 0 30px;
+    justify-content: space-between;
 }
 
 .search {
@@ -23,19 +27,14 @@ footer {
 }
 
 header {
-    background-color: #302f36;
+    background-color: #181818;
     padding: 1em;
     width:100vw;
 }
 
-h1 {
-    display: inline-flex;
-}
-
 #spotifyCredit {
     display: flex;
-    justify-content: right;
-    padding: 1em;
+    justify-items: right;
 }
 
 .container {
@@ -51,7 +50,7 @@ h1 {
 }
 
 main {
-    min-height: 75vh;
+    min-height: 83vh;
     display: flex;
     justify-content: space-around
 }
@@ -65,4 +64,13 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #cccccc;
+    color: white;
+    border-radius: 5em;
+    padding: 2em;
+}
+
+.bg-secondary-color {
+    color: #cccccc;
+    background-color: #505050;
 }
