@@ -58,3 +58,11 @@ nav {
     border-radius: 5em;
     padding: 2em;
 }
+
+.navlink {
+    color: #1ed760;
+}
+
+#searchbar {
+    border-radius: 1em;
+}
