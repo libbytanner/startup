@@ -44,9 +44,13 @@ h1 {
 }
 .card {
     width: 13em;
-
+    border-radius: 0;
 }
 
 main {
     min-height: 75vh;
+}
+
+nav {
+    height: 3em;
 }
