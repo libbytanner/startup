@@ -3,12 +3,14 @@
 }
 
 footer {
-    background-color: #cccccc
+    background-color: #cccccc;
+    width: 100vw;
 }
 
 .search {
     float: right;
 }
+
 header {
     background-color: #302f36;
     padding: 1em;
@@ -17,4 +19,11 @@ header {
 
 h1 {
     display: inline-flex;
+}
+
+#spotifyCredit {
+    display: inline-flex;
+    justify-content: right;
+    padding: 1em;
+    align-items: center;    
 }
