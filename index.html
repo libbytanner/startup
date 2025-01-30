@@ -28,24 +28,21 @@
                         <a class="nav-link" href="about.html">About</a>
                       </li>
                       <li class="nav-item">
-                        <form class="d-flex" role="search">
+                        <form id="search" class="d-flex" role="search">
                           <input class="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search">
                           <ul id="search-results"></ul>
                         </form>
                       </li>
                     </ul>
-                    </div>
                   </div>
                 </div>
               </nav>
         </header>
-
-
-        <main>
+        <main class="text-center">
           <div class="login">
-            <h1>Welcome to Soundscope!</h1>
+            <h1>Welcome to SoundScope!</h1>
             <p>Please log in or create an account</p>
-            <form>
+            <form method="get" action="userRatings.html" class="login-form">
                 <div id="email">
                     <span>✉</span>
                     <input type="text" placeholder="janedoe@place.com" />

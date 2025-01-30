@@ -30,11 +30,11 @@
                         <a class="nav-link" href="recent.html">Recent</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="about.html">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                       </li>
                       <li class="nav-item">
-                        <form class="d-flex" role="search">
-                          <input class="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search">
+                        <form class="d-flex" role="search" method="get" action="album.html">
+                            <input class="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search">
                           <ul id="search-results"></ul>
                         </form>
                       </li>
@@ -67,7 +67,6 @@
                 <button type="submit" class="btn btn-primary">Submit Rating</button>
             </form>
         </main>
-
         <footer>
             <p>Author: Libby Tanner</p>
             <a href="https://github.com/libbytanner/startup">Startup Github Repository</a>
