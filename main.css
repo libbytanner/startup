@@ -12,11 +12,20 @@ body {
   }
 
 footer {
+    padding: 5px;
     display: flex;
-    background-color: #cccccc;
+    background-color: #181818;
+    color: #c6a8a3;
     width: 100vw;
     flex: 0 30px;
     justify-content: space-between;
+}
+
+footer img {
+    margin: 5px
+}
+footer a {
+    color:#78c2ea
 }
 
 header {
@@ -34,8 +43,7 @@ main {
     min-height: 83vh;
     display: inline;
     align-content: center;
-    color: #cccccc;
-    background-color: #333333;
+    background-color: #78c2ea;
     padding: 2em;
 }
 
@@ -80,6 +88,9 @@ nav {
 .navbar .nav-link {
     color: #c6a8a3;
 }
+.navbar-brand {
+    color:#e6612e !important;
+}
 
 .btn {
     border-color:#78c2ea !important
@@ -90,6 +101,10 @@ nav {
 }
 
 .btn-outline-primary {
-color:#78c2ea !important;
+    color:#78c2ea !important;
 
+}
+
+#search {
+    margin: 2em;
 }
