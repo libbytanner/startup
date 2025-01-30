@@ -1,0 +1,28 @@
+/* contains styling for forms, 
+as well as for the page to leave ratings */
+
+#albumInfo {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+#albumCover {
+    min-width: 300px
+}
+
+.form-range{
+    max-width: 600px; 
+}
+
+.btn {
+    border-color:#e6612e !important
+}
+
+.btn-primary {
+    background-color:#e6612e !important;
+}
+
+.btn-outline-primary {
+    color: #e6612e !important;
+}

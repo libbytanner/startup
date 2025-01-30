@@ -68,20 +68,6 @@ nav {
     justify-self:center;
 }
 
-#albumInfo {
-    display: flex;
-    justify-content: center;
-    gap: 3em;
-}
-
-#albumCover {
-    min-width: 300px
-}
-
-.form-range{
-    max-width: 600px; 
-}
-
 .navbar .active {
     color:#fe9f39 !important;
 }
@@ -91,18 +77,6 @@ nav {
 }
 .navbar-brand {
     color:#e6612e !important;
-}
-
-.btn {
-    border-color:#e6612e !important
-}
-
-.btn-primary {
-    background-color:#e6612e !important;
-}
-
-.btn-outline-primary {
-    color: #e6612e !important;
 }
 
 #search ul {
