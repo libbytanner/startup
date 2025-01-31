@@ -5,7 +5,13 @@ as well as for the page to leave ratings */
     display: inline-flex;
     justify-content: center;
     gap: 3em;
-    font-size: x-large !important;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+#albumInfo h1 {
+    font-weight: 600;
+    font-size: 50px;
 }
 
 #albumCover {
@@ -14,6 +20,7 @@ as well as for the page to leave ratings */
     border-width: 15px;
     box-shadow: -10px -10px #181818;
     border-radius: 4px;
+    float: left;
 }
 
 .form-range{
@@ -56,5 +63,8 @@ as well as for the page to leave ratings */
     }
     #albumCover {
         max-width: 450px;
+    }
+    #userInput {
+        display: flex;
     }
 }
