@@ -8,17 +8,15 @@
 body {
     display: flex;
     flex-direction: column;
-    min-width: 375px;
+    /* min-width: 375px; */
     background-color: #78c2ea !important;
 }
 
 footer {
-    padding: 5px;
+    padding: 10px;
     display: flex;
     background-color: #181818;
     color: #c6a8a3;
-    width: 100vw;
-    flex: 0 30px;
     justify-content: space-between;
 }
 
@@ -57,15 +55,12 @@ nav {
     flex-direction: column;
     align-items: center;
     background-color: #fe9f39;
-     /*background-color: #eeeeeee;  */
+    /* background-color: #eeeeee;  */
     color: #181818;
     border-radius: 15px;
     padding: 2em;
-}
-
-#userInput {
-    display:block;
-    justify-self:center;
+    box-shadow: -10px -10px #181818;
+    /* box-shadow: -10px -10px #ffffff; */
 }
 
 .navbar .active {

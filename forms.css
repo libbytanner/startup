@@ -2,13 +2,18 @@
 as well as for the page to leave ratings */
 
 #albumInfo {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     gap: 3em;
+    font-size: x-large !important;
 }
 
 #albumCover {
-    min-width: 300px
+    width: 500px;
+    border-style: solid;
+    border-width: 15px;
+    box-shadow: -10px -10px #181818;
+    border-radius: 4px;
 }
 
 .form-range{
@@ -21,8 +26,35 @@ as well as for the page to leave ratings */
 
 .btn-primary {
     background-color:#e6612e !important;
+    color: #fe9f39 !important
 }
 
 .btn-outline-primary {
     color: #e6612e !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #e6612e !important;
+    color: #fe9f39 !important;
+}  
+
+.btn-primary:hover {
+    color: #e6612e !important;
+    background-color: #fe9f39 !important;
+}
+
+#userInput {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+@media ((orientation: portrait) and (max-width:600px)){
+    #albumInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content:center
+    }
+    #albumCover {
+        max-width: 450px;
+    }
 }
