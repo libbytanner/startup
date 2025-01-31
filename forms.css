@@ -2,9 +2,8 @@
 as well as for the page to leave ratings */
 
 #albumInfo {
-    display: inline-flex;
+    display: inline;
     justify-content: center;
-    gap: 3em;
     word-wrap: break-word;
     word-break: break-word;
 }
@@ -15,16 +14,19 @@ as well as for the page to leave ratings */
 }
 
 #albumCover {
-    width: 500px;
+    float:left;
+    min-width: 400px;
+    display: inline-flex;
     border-style: solid;
     border-width: 15px;
     box-shadow: -10px -10px #181818;
     border-radius: 4px;
-    float: left;
+    margin: 20px;
 }
 
-.form-range{
-    max-width: 600px; 
+#submit {
+    width: 350px;
+    align-self: center;
 }
 
 .btn {
@@ -33,7 +35,7 @@ as well as for the page to leave ratings */
 
 .btn-primary {
     background-color:#e6612e !important;
-    color: #fe9f39 !important
+    color: #ffffff !important
 }
 
 .btn-outline-primary {
@@ -42,7 +44,7 @@ as well as for the page to leave ratings */
 
 .btn-outline-primary:hover {
     background-color: #e6612e !important;
-    color: #fe9f39 !important;
+    color: #ffffff !important;
 }  
 
 .btn-primary:hover {
@@ -51,11 +53,21 @@ as well as for the page to leave ratings */
 }
 
 #userInput {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
+    min-width: 250px;
+    max-width: 600px;
 }
 
-@media ((orientation: portrait) and (max-width:600px)){
+.form-range::-webkit-slider-thumb{
+    background-color: #e6612e !important;
+}
+
+@media ((orientation: portrait)){
+    main {
+        display: flex;
+        flex-direction: column;
+    }
     #albumInfo {
         display: flex;
         flex-direction: column;

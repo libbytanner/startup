@@ -45,36 +45,38 @@
               </nav>
         </header>
         <main>
+            <img id="albumCover" src="placeholder.png"/>
             <div id="albumInfo">
-                <img id="albumCover" src="placeholder.png"/>
                 <div>
                     <h1>Album Title</h1>
                     <h3>Artist: <span id="artistName">Artist Name</span></h3>
                     <h3>Year: <span id="year">2025</span></h3>
                 </div>
+                <br>
+                <form id="userInput" action="userRatings.html">
+                    <div id="nameField">
+                        <input class="form-control" aria-label="Name"type="text" id="name" name="varName" placeholder="Name" />
+                    </div>
+                    <div id="ratingSlider">
+                        <label for="rating">Rating</label>
+                        <input type="range" class="form-range" min="1" max="10" step="0.5" name="varRange" step="0.5"></range>
+                        <output id="rangeOutput" for="rating">0</output>
+                    </div>
+                    <button id="submit" type="submit" class="btn btn-primary">Submit Rating</button>
+                </form>
             </div>
-            <br>
-            <form id="userInput">
-                <div id="nameField">
-                    <input class="form-control" aria-label="Name"type="text" id="name" name="varName" placeholder="Name" />
-                </div>
-                <div id="ratingSlider">
-                    <label for="rating">Rating</label>
-                    <input type="range" class="form-range" min="1" max="10" step="0.5" name="varRange" step="0.5"></range>
-                    <output id="rangeOutput" for="rating">0</output>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit Rating</button>
-            </form>
         </main>
-        <footer>
-            <div id="author">
-              <p>Author: Libby Tanner</p>
-              <a href="https://github.com/libbytanner/startup">Startup Github Repository</a>
+        <footer >
+            <div class="sticky-bottom">
+                <div id="author">
+                <p>Author: Libby Tanner</p>
+                <a href="https://github.com/libbytanner/startup">Startup Github Repository</a>
+                </div>
+                <div id="spotifyCredit">
+                <p>Made with </p>
+                <img src="fullLogo.svg" width="150px"/>
+                </div>
             </div>
-            <div id="spotifyCredit">
-              <p>Made with </p>
-              <img src="fullLogo.svg" width="150px"/>
-            </div>
-          </footer>
+        </footer>
     </body>
 </html>

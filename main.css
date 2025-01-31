@@ -8,7 +8,6 @@
 body {
     display: flex;
     flex-direction: column;
-    /* min-width: 375px; */
     background-color: #78c2ea !important;
 }
 
@@ -38,7 +37,6 @@ header {
 }
 
 main {
-    min-height: 83vh;
     display: inline;
     align-content: center;
     justify-content: center;
