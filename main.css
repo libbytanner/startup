@@ -6,9 +6,16 @@
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: #78c2ea !important;
+}
+
+main {
+    padding: 3em;
+    flex-grow: 1;
+    
 }
 
 footer {
@@ -36,12 +43,6 @@ header {
     display: flex;
 }
 
-main {
-    display: inline;
-    align-content: center;
-    justify-content: center;
-    padding: 2em;
-}
 
 nav {
     height: 3em;
@@ -57,7 +58,6 @@ nav {
     border-radius: 15px;
     padding: 2em;
     box-shadow: -10px -10px #181818;
-    /* box-shadow: -10px -10px #ffffff; */
 }
 
 .navbar .active {
@@ -78,5 +78,4 @@ nav {
     footer {
         display: none;
     }
-
 }

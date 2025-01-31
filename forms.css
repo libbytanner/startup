@@ -21,7 +21,7 @@ as well as for the page to leave ratings */
     border-width: 15px;
     box-shadow: -10px -10px #181818;
     border-radius: 4px;
-    margin: 20px;
+    margin: 30px;
 }
 
 #submit {
@@ -75,6 +75,7 @@ as well as for the page to leave ratings */
     }
     #albumCover {
         max-width: 450px;
+        align-self: center;
     }
     #userInput {
         display: flex;
