@@ -60,4 +60,6 @@ Justify is used when you are working with a flex or grid element. This took me a
 
 To override set colors from a bootstrap element, just put !important next to the declaration in your css. Cool!  
 
-@media to create media queries, which make your app responsive, change the layout for different screen sizes. 
+@media to create media queries, which make your app responsive, change the layout for different screen sizes.  
+
+I really played around with using flex elements, they are very powerful for achieving the desired design. 
