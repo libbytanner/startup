@@ -1,11 +1,5 @@
-.space-grotesk {
-  font-family: "Space Grotesk", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
 body {
+    font-family: "Space Grotesk", sans-serif !important;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
