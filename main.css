@@ -46,11 +46,6 @@ header {
     display: flex;
 }
 
-
-nav {
-    height: 3em;
-}
-
 .login {
     display: inline-flex;
     flex-direction: column;

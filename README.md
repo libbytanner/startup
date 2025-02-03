@@ -70,12 +70,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
+- [X] **Header, footer, and main content body** - I added a navigation bar for the header, which, along with the footer, is consistent across each page. Each page also has a main content body. 
+- [x] **Navigation elements** - I added a navigation bar which turns into a toggle button on smaller screens. 
+- [x] **Responsive to window resizing** - I added media queries to make my pages responsive. When the window reaches a certain width getting smaller, the footer is not displayed and the navigation is under a toggle button. 
 - [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Application text content** - I styled the parts of my application that include text, including placeholder text for data from third party. I also included an external font. 
+- [x] **Application images** - Because the images will be retrieved from a third party, I still only have the placeholders in place. They are placed how I want them, so they will be rendered correctly.
 
 ## 🚀 React part 1: Routing deliverable
 
