@@ -2,27 +2,35 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { Ratings } from './ratings/userRatings';
+import { Community } from './community/community';
+import { Album } from './album/album';
+
 export default function App() {
-  return <div className='body'>
-    <header class="sticky-top">
-        <nav class="navbar navbar-dark navbar-expand-md">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">SoundScope</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+  return (
+    <BrowserRouter>
+    <div className='app'>
+      <header className="sticky-top">
+        <nav className="navbar navbar-dark navbar-expand-md">
+          <div className="container-fluid">
+            <NavLink className="navbar-brand" to="">SoundScope</NavLink>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="userRatings.html">My Ratings</a>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="ratings">My Ratings</NavLink>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="recent.html">Recent</a>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="community">Community</NavLink>
                 </li>
-                <li class="nav-item">
-                  <form id="search" class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search"/>
-                    <ul id="search-results"></ul>
+                <li className="nav-item">
+                  <form id="search" className="d-flex" role="search">
+                    <input className="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search"/>
+                    <ul id="search-results"><li><NavLink to="album">Album1</NavLink></li></ul>
                   </form>
                 </li>
               </ul>
@@ -30,9 +38,15 @@ export default function App() {
           </div>
         </nav>
         </header>
-        <main>
-			app components go here
-        </main>
+
+        <Routes>
+          <Route path='/' element={<Login />} exact />
+          <Route path='/ratings' element={<Ratings />} />
+          <Route path='/community' element={<Community />} />
+          <Route path='/album' element={<Album />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+
         <footer>
 			<div>
 				<p>Author: Libby Tanner</p>
@@ -43,5 +57,11 @@ export default function App() {
 				<img src="fullLogo.svg" width="150px"/>
 			</div>
 		</footer>
-  </div>;
+  </div>
+  </BrowserRouter>
+  )
+}
+
+function NotFound() {
+  return <main className='container-fluid'>404: Return to sender. Address unknown.</main>;
 }
