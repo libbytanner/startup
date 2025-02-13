@@ -62,4 +62,10 @@ To override set colors from a bootstrap element, just put !important next to the
 
 @media to create media queries, which make your app responsive, change the layout for different screen sizes.  
 
-I really played around with using flex elements, they are very powerful for achieving the desired design. 
+I really played around with using flex elements, they are very powerful for achieving the desired design.  
+
+## React Notes
+
+Helps consolidate code in a way, less duplicated code. It is very helpful in cleaning up the directory.  
+
+Adding routing is also super helpful, it is so cool that you can turn it into a single page app so simply. 
