@@ -1,9 +1,8 @@
 .app {
     font-family: "Space Grotesk", sans-serif !important;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #78c2ea !important;
 }
 
 main {
@@ -12,7 +11,8 @@ main {
     justify-content: center;
     padding: 3em;
     flex-grow: 1;
-    
+    background-color: #78c2ea !important;
+
 }
 
 footer {
