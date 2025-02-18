@@ -8,6 +8,7 @@ export function Album() {
   const [artist, setArtist] = React.useState('Artist');
   const [year, setYear] = React.useState('Year');
   const [rating, updateRating] = React.useState('5');
+  const [albumUrl, setAlbumUrl] = React.useState('')
 
   React.useEffect(() => {
     setAlbumTitle('Album')
@@ -22,7 +23,7 @@ export function Album() {
 
   async function saveRating(rating) {
     const date = new Date().toLocaleDateString();
-    const newRating = { name: userName, cover: imageUrl, artist: artist, date: date, rating: rating }
+    const newRating = { name: userName, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl }
   }
   
 
