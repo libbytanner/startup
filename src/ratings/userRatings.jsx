@@ -4,10 +4,21 @@ import '../gallery.css'
 
 
 export function Ratings() {
-  return (
-    <main>
-        <div className="container">
-          <div className="card h-100">
+  const [albums, setAlbums] = React.useState([])
+
+  React.useEffect(() => {
+    const albumsText = localStorage.getItem('albums')
+    if (albumsText) {
+      setAlbums(JSON.parse(albumsText))
+    }
+    console.log(albums)
+  }, [])
+
+  const albumRatings = [];
+  if (albums.length) {
+    for (const[i,album] of albums.entries()) {
+      albumRatings.push(
+        <div className="card h-100" key={album.id}>
             <img src="placeholder.png" className="card-img-top" alt="album cover"/>
             <div className="card-body">
               <h5 className="card-title">Album Title</h5>
@@ -15,73 +26,23 @@ export function Ratings() {
               <span className="icon"><img src="icon.svg" width="25px"/></span>
             </div>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">Rating: <span>rating</span></li>
-              <li className="list-group-item">Date: <span>date</span></li>
+              <li className="list-group-item">Rating: {album.rating}</li>
+              <li className="list-group-item">Date: {album.date}</li>
               <li className="list-group-item">
-                <a href="spotify.com" class="btn btn-primary stretched-link">View Album on Spotify</a>
+                <a href="https://open.spotify.com" className="btn btn-primary">View Album on Spotify</a>
               </li>
             </ul>
           </div>
-          <div className="card h-100">
-            <img src="placeholder.png" className="card-img-top" alt="album cover"/>
-            <div className="card-body">
-              <h5 className="card-title">Album Title</h5>
-              <p className="card-text">Artist:</p>
-              <span className="icon"><img src="icon.svg" width="25px"/></span>
-            </div>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">Rating: <span>rating</span></li>
-              <li className="list-group-item">Date: <span>date</span></li>
-            </ul>
-          </div>
-          <div className="card h-100">
-            <img src="placeholder.png" className="card-img-top" alt="album cover"/>
-            <div className="card-body">
-              <h5 className="card-title">Album Title</h5>
-              <p className="card-text">Artist:</p>
-              <span className="icon"><img src="icon.svg" width="25px"/></span>
-            </div>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">Rating: <span>rating</span></li>
-              <li className="list-group-item">Date: <span>date</span></li>
-            </ul>
-          </div>
-          <div className="card h-100">
-            <img src="placeholder.png" className="card-img-top" alt="album cover"/>
-            <div className="card-body">
-              <h5 className="card-title">Album Title</h5>
-              <p className="card-text">Artist:</p>
-              <span className="icon"><img src="icon.svg" width="25px"/></span>
-            </div>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">Rating: <span>rating</span></li>
-              <li className="list-group-item">Date: <span>date</span></li>
-            </ul>
-          </div>
-          <div className="card h-100">
-            <img src="placeholder.png" className="card-img-top" alt="album cover"/>
-            <div className="card-body">
-              <h5 className="card-title">Album Title</h5>
-              <p className="card-text">Artist:</p>
-              <span className="icon"><img src="icon.svg" width="25px"/></span>
-            </div>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">Rating: <span>rating</span></li>
-              <li className="list-group-item">Date: <span>date</span></li>
-            </ul>
-          </div>
-          <div className="card h-100">
-            <img src="placeholder.png" className="card-img-top" alt="album cover"/>
-            <div className="card-body">
-              <h5 className="card-title">Album Title</h5>
-              <p className="card-text">Artist:</p>
-              <span className="icon"><img src="icon.svg" width="25px"/></span>
-            </div>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">Rating: <span>rating</span></li>
-              <li className="list-group-item">Date: <span>date</span></li>
-            </ul>
-          </div>
+      )
+    }
+  } else [
+    <p>Please rate an album!</p>
+  ]
+
+  return (
+    <main>
+        <div className="container">
+          {albumRatings}
       </div>
     </main>
   );
