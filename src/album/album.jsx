@@ -15,6 +15,7 @@ export function Album() {
     setImageUrl('placeholder.png');
     setArtist('Artist');
     setYear('Year');
+    setAlbumUrl('https://open.spotify.com');
   }, [])
 
   function onChange(e) {
@@ -23,7 +24,7 @@ export function Album() {
 
   function saveRating(rating) {
     const date = new Date().toLocaleDateString();
-    const newRating = { name: albumTitle, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl };
+    const newRating = { title: albumTitle, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl };
     updateAlbumsLocal(newRating)
   }
   
