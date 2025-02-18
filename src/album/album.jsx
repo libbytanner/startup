@@ -1,26 +1,50 @@
 import React from 'react';
 import '../forms.css'
 
+
 export function Album() {
+  const [albumTitle, setAlbumTitle] = React.useState('Title')
+  const [imageUrl, setImageUrl] = React.useState('');
+  const [artist, setArtist] = React.useState('Artist');
+  const [year, setYear] = React.useState('Year');
+  const [rating, updateRating] = React.useState('5');
+
+  React.useEffect(() => {
+    setAlbumTitle('Album')
+    setImageUrl('placeholder.png');
+    setArtist('Artist');
+    setYear('Year');
+  }, [])
+
+  function onChange(e) {
+    updateRating(e.target.value);
+  }
+
+  async function saveRating(rating) {
+    const date = new Date().toLocaleDateString();
+    const newRating = { name: userName, cover: imageUrl, artist: artist, date: date, rating: rating }
+  }
+  
+
   return (
     <main>
-      <img id="albumCover" src="placeholder.png"/>
+      <img id="albumCover" src={imageUrl}/>
       <div id="albumInfo">
         <div>
-          <h1>Album Title</h1>
-          <h3>Artist: <span id="artistName">Artist Name</span></h3>
-          <h3>Year: <span id="year">2025</span></h3>
+          <h1>{albumTitle}</h1>
+          <h3>{artist}</h3>
+          <h3>{year}</h3>
         </div>
-        <form id="userInput" action="userRatings.html">
+        <form id="userInput" to="ratings">
           <div id="nameField">
             <input className="form-control" aria-label="Name"type="text" id="name" name="varName" placeholder="Name" />
           </div>
           <div id="ratingSlider">
             <label for="rating">Rating</label>
-            <input type="range" className="form-range" min="1" max="10" step="0.5" name="varRange"></input>
-              <output id="rangeOutput" for="rating">0</output>
+            <input type="range" className="form-range" min="1" max="10" step="0.5" name="varRange" onChange={onChange}></input>
+              <output id="rangeOutput" for="rating">{rating}/10</output>
           </div>
-          <button id="submit" type="submit" className="btn btn-primary">Submit Rating</button>
+          <button id="submit" type="submit" className="btn btn-primary" onClick={() => saveRating(rating)}>Submit Rating</button>
         </form>
       </div>
     </main>

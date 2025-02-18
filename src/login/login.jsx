@@ -7,7 +7,7 @@ export function Login() {
           <div className="login">
             <h1>Welcome to SoundScope!</h1>
             <p>Please log in or create an account</p>
-            <form method="get" action="userRatings.html" className="login-form">
+            <form method="get" to="ratings" className="login-form">
               <div className="input-group mb-3" id="email">
                 <span className="input-group-text" id="basic-addon1">✉</span>
                 <input className="form-control" type="text" placeholder="janedoe@place.com" />

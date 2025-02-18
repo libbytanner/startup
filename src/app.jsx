@@ -28,10 +28,11 @@ export default function App() {
                   <NavLink className="nav-link" to="community">Community</NavLink>
                 </li>
                 <li className="nav-item">
-                  <form id="search" className="d-flex" role="search">
+                  {/* <form id="search" className="d-flex" role="search">
                     <input className="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search"/>
                     <ul id="search-results"><li><NavLink to="album">Album1</NavLink></li></ul>
-                  </form>
+                  </form> */}
+                  <NavLink className="nav-link" to="album">Album</NavLink>
                 </li>
               </ul>
             </div>

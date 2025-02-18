@@ -29,6 +29,11 @@ as well as for the page to leave ratings */
     align-self: center;
 }
 
+#ratingSlider {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 .btn {
     border-color:#e6612e !important
 }
