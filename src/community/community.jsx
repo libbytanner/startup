@@ -2,7 +2,7 @@ import React from 'react';
 
 export function Community(props) {
   const [albums, setAlbums] = React.useState([]);
-  const username = props.username
+  const user = props.username;
 
   React.useEffect(() => {
     const albumsText = localStorage.getItem('albums')
@@ -24,7 +24,7 @@ export function Community(props) {
           </div>
           <ul className="list-group list-group-flush">
             <li className="list-group-item">Rating: {album.rating}</li>
-            <li className="list-group-item">User: {username}</li>
+            <li className="list-group-item">User: {album.user}</li>
             <li className="list-group-item">Date: {album.date}</li>
             <li className="list-group-item">
                 <a href="https://open.spotify.com" className="btn btn-primary">View Album on Spotify</a>

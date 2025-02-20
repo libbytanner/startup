@@ -60,7 +60,7 @@ export default function App() {
           />} exact />
           <Route path='/ratings' element={<Ratings />} />
           <Route path='/community' element={<Community username={username}/>} />
-          <Route path='/album' element={<Album />} />
+          <Route path='/album' element={<Album username={username}/>} />
           <Route path='*' element={<NotFound />} />
         </Routes>
 

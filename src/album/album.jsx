@@ -2,13 +2,14 @@ import React from 'react';
 import '../forms.css'
 
 
-export function Album() {
+export function Album(props) {
   const [albumTitle, setAlbumTitle] = React.useState('Title')
   const [imageUrl, setImageUrl] = React.useState('placeholder.png');
   const [artist, setArtist] = React.useState('Artist');
   const [year, setYear] = React.useState('Year');
   const [rating, updateRating] = React.useState('5');
   const [albumUrl, setAlbumUrl] = React.useState('spotify.com')
+  const username = props.username;
 
   React.useEffect(() => {
     setAlbumTitle('Album')
@@ -24,7 +25,7 @@ export function Album() {
 
   function saveRating(rating) {
     const date = new Date().toLocaleDateString();
-    const newRating = { title: albumTitle, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl };
+    const newRating = { title: albumTitle, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl, user: username };
     updateAlbumsLocal(newRating)
   }
   
