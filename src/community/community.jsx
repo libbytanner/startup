@@ -1,13 +1,17 @@
 import React from 'react';
-export function Community() {
-  const [ratings, setRatings] = React.useState([]);
 
-  function newRating() {
-    setRatings()
-  }
+export function Community(props) {
+  const [albums, setAlbums] = React.useState([]);
+  const username = props.username
 
+  React.useEffect(() => {
+    const albumsText = localStorage.getItem('albums')
+    if (albumsText) {
+      setAlbums(JSON.parse(albumsText))
+    }
+  }, [])
 
-
+  const recentRatings = [];
   if (albums.length) {
     for (const[i,album] of albums.entries()) {
       recentRatings.push(
@@ -19,9 +23,9 @@ export function Community() {
             <span className="icon"><img src="icon.svg" width="25px"/></span>
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">Rating: {rating}</li>
-            <li className="list-group-item">User: {user}</li>
-            <li className="list-group-item">Date: {date}</li>
+            <li className="list-group-item">Rating: {album.rating}</li>
+            <li className="list-group-item">User: {username}</li>
+            <li className="list-group-item">Date: {album.date}</li>
             <li className="list-group-item">
                 <a href="https://open.spotify.com" className="btn btn-primary">View Album on Spotify</a>
             </li>
@@ -36,7 +40,7 @@ export function Community() {
   return (
     <main>
       <div className="container">
-        {albumRatings}
+        {recentRatings}
       </div>
     </main>
   );
