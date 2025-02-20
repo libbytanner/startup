@@ -1,8 +1,7 @@
 import React from 'react';
 
-export function Community(props) {
+export function Community() {
   const [albums, setAlbums] = React.useState([]);
-  const user = props.username;
 
   React.useEffect(() => {
     const albumsText = localStorage.getItem('albums')
