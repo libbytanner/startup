@@ -14,6 +14,10 @@ export default function App() {
   const currentAuthState = username ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
 
+  React.useEffect(() => {
+    setUsername(username)
+  })
+
   return (
     <BrowserRouter>
     <div className='app'>
@@ -55,7 +59,7 @@ export default function App() {
             authState={authState}
             onAuthChange={(username, authState) => {
               setAuthState(authState);
-              setUserName(username);
+              setUsername(username);
             }}
           />} exact />
           <Route path='/ratings' element={<Ratings />} />

@@ -1,13 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './authenticated.css'
+import './authenticated.css';
 
 export function Authenticated(props) {
     const navigate = useNavigate();
     
     function logout() {
         localStorage.removeItem('username');
+        console.log('logging out')
+        console.log(localStorage.getItem('username'))
         props.onLogout();
     }
 
