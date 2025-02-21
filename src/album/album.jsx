@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../forms.css'
 
 
@@ -10,6 +11,8 @@ export function Album(props) {
   const [rating, updateRating] = React.useState('5');
   const [albumUrl, setAlbumUrl] = React.useState('spotify.com')
   const username = props.username;
+  const navigate = useNavigate();
+
 
   React.useEffect(() => {
     setAlbumTitle('Album')
@@ -26,7 +29,8 @@ export function Album(props) {
   function saveRating(rating) {
     const date = new Date().toLocaleDateString();
     const newRating = { title: albumTitle, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl, user: username };
-    updateAlbumsLocal(newRating)
+    updateAlbumsLocal(newRating);
+    navigate('/ratings')
   }
   
   function updateAlbumsLocal(newRating) {
@@ -51,9 +55,6 @@ export function Album(props) {
           <h3>{year}</h3>
         </div>
         <form id="userInput" to="albums" onSubmit={(e) => e.preventDefault()}>
-          <div id="nameField">
-            <input className="form-control" aria-label="Name"type="text" id="name" name="varName" placeholder="Name" />
-          </div>
           <div id="albumslider">
             <label for="rating">Rating</label>
             <input type="range" className="form-range" min="1" max="10" step="0.5" name="varRange" onChange={onChange}></input>
