@@ -6,6 +6,9 @@ as well as for the page to leave ratings */
     justify-content: center;
     word-wrap: break-word;
     word-break: break-word;
+    background-color: #ffffff;
+    padding: 3em;
+    border-radius: 4%;
 }
 
 #albumInfo h1 {
@@ -35,7 +38,7 @@ as well as for the page to leave ratings */
 }
 
 .btn {
-    border-color:#e6612e !important
+    border-color:#e6612e !important;
 }
 
 .btn-primary {
