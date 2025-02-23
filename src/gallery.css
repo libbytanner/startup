@@ -24,12 +24,18 @@
     float:right;
     min-width: 21px;
 }
+
+.button {
+    display: flex;
+    align-self: center;
+}
+
 @media ((orientation: portrait) and (max-width:600px)){
     .container {
         grid-template-columns: repeat(1fr, minmax(80vw, 90vw));
     }
     .card {
-        border-radius: 2px !important;
         width: 55vw;
+        margin-top: 10px;
     }
 }

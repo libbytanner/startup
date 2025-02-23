@@ -1,4 +1,6 @@
 import React from 'react';
+import '../gallery.css'
+
 
 export function Community() {
   const [albums, setAlbums] = React.useState([]);
@@ -25,7 +27,7 @@ export function Community() {
             <li className="list-group-item">Rating: {album.rating}</li>
             <li className="list-group-item">User: {album.user}</li>
             <li className="list-group-item">Date: {album.date}</li>
-            <li className="list-group-item">
+            <li className="list-group-item button">
                 <a href="https://open.spotify.com" className="btn btn-primary">View Album on Spotify</a>
             </li>
           </ul>
