@@ -2,7 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+
+import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import { Login } from './login/login';
 import { Ratings } from './ratings/userRatings';
 import { Community } from './community/community';
@@ -13,13 +14,19 @@ export default function App() {
   const [username, setUsername] = React.useState(localStorage.getItem('username') || "");
   const currentAuthState = username ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
+  const navigate = useNavigate()
 
   React.useEffect(() => {
     setUsername(username)
   })
 
+  const search = (event) => {
+    if (event.key === 'Enter') {
+      navigate('/album')
+    }
+  }
+
   return (
-    <BrowserRouter>
     <div className='app'>
       <header className="sticky-top">
         <nav className="navbar navbar-dark navbar-expand-md">
@@ -40,11 +47,9 @@ export default function App() {
                     <NavLink className="nav-link" to="community">Community</NavLink>
                   </li>
                   <li className="nav-item">
-                    {/* <form id="search" className="d-flex" role="search">
-                      <input className="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search"/>
-                      <ul id="search-results"><li><NavLink to="album">Album1</NavLink></li></ul>
-                    </form> */}
-                    <NavLink className="nav-link" to="album">Album</NavLink>
+                    <form id="search" className="d-flex" role="search">
+                      <input className="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search" onKeyDown={search}/>
+                    </form>
                   </li>
                 </ul>
               </div>
@@ -79,7 +84,6 @@ export default function App() {
 			</div>
 		</footer>
   </div>
-  </BrowserRouter>
   )
 }
 
