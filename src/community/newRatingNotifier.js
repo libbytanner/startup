@@ -15,7 +15,7 @@ class NewRatingNotifier {
 
     constructor() {
         setInterval(() => {
-            const rating = Math.floor(Math.random() * 30);
+            const rating = Math.floor(Math.random() * 10);
             const date = new Date().toLocaleDateString();
             const username = 'cool person';
 
