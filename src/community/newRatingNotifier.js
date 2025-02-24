@@ -3,6 +3,7 @@ class Rating {
         this.id = value.id;
         this.user = value.name;
         this.title = value.title;
+        this.artist = value.artist;
         this.rating = value.rating;
     }
 }
@@ -16,19 +17,19 @@ class NewRatingNotifier {
         setInterval(() => {
             const rating = Math.floor(Math.random() * 30);
             const date = new Date().toLocaleDateString();
-            const username = 'Libby';
+            const username = 'cool person';
 
             const newAlbum = {
                 id: Date.now(),
                 name: username,
                 title: "Good Album",
-                artist: 'idkhow',
+                artist: 'good band',
                 rating: rating,
                 date: date,
             };
 
             this.broadcastEvent(newAlbum)
-        }, 20000);
+        }, 10000);
     }
 
     broadcastEvent(value) {
