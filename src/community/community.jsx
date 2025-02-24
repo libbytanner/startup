@@ -1,42 +1,60 @@
 import React from 'react';
-import '../gallery.css'
+import '../gallery.css';
+
+import { RatingNotifier} from './newRatingNotifier.js'
 
 
 export function Community() {
+
   const [albums, setAlbums] = React.useState([]);
 
   React.useEffect(() => {
-    const albumsText = localStorage.getItem('albums')
-    if (albumsText) {
-      setAlbums(JSON.parse(albumsText))
-    }
+    RatingNotifier.addHandler(handleNewRating)
+
+    return () => {
+      RatingNotifier.removeHandler(handleNewRating)
+    };
   }, [])
 
-  const recentRatings = [];
-  if (albums.length) {
-    for (const[i,album] of albums.entries()) {
-      recentRatings.push(
-        <div className="card h-100" key={album.id}>
-          <img src="placeholder.png" className="card-img-top" alt="album cover"/>
-          <div className="card-body">
-            <h5 className="card-title">{album.title}</h5>
-            <p className="card-text">Artist:</p>
-            <span className="icon"><img src="icon.svg" width="25px"/></span>
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">Rating: {album.rating}</li>
-            <li className="list-group-item">User: {album.user}</li>
-            <li className="list-group-item">Date: {album.date}</li>
-            <li className="list-group-item button">
-                <a href="https://open.spotify.com" className="btn btn-primary">View Album on Spotify</a>
-            </li>
-          </ul>
-        </div>
+  function handleNewRating(event) {
+    setAlbums((prevAlbums) => {
+      let newEvents = [event, ...prevAlbums];
+      if (newEvents.length > 20) {
+        newEvents = newEvents.slice(0, 20);
+      }
+      return newEvents;
+    })
+  }
+
+  function createRatingsArray() {
+    const ratingsArray = [];
+    for (const [i, event] of albums.entries()) {
+      ratingsArray.push(
+        <div></div>
       )
     }
-  } else (
-    <p>Please rate an album!</p>
-  )
+  }
+  const recentRatings = [];
+  for (const[i,album] of albums.entries()) {
+    recentRatings.push(
+      <div className="card h-100" key={album.id}>
+        <img src="placeholder.png" className="card-img-top" alt="album cover"/>
+        <div className="card-body">
+          <h5 className="card-title">{album.title}</h5>
+          <p className="card-text">{album.artist}</p>
+          <span className="icon"><img src="icon.svg" width="25px"/></span>
+        </div>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">Rating: {album.rating}</li>
+          <li className="list-group-item">User: {album.user}</li>
+          <li className="list-group-item">Date: {album.date}</li>
+          <li className="list-group-item button">
+            <a href="https://open.spotify.com" className="btn btn-primary">View Album on Spotify</a>
+          </li>
+        </ul>
+      </div>
+    )
+    }
 
   return (
     <main>
@@ -46,18 +64,3 @@ export function Community() {
     </main>
   );
 }
-  
-      
-{/* <div className="card">
-          <img src="placeholder.png" className="card-img-top" alt="album cover"/>
-          <div className="card-body">
-            <h5 className="card-title">Album Title</h5>
-            <p className="card-text">Artist:</p>
-            <span className="icon"><img src="icon.svg" width="25px"/></span>
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">Rating: <span>rating</span></li>
-            <li className="list-group-item">User: <span>user</span></li>
-            <li className="list-group-item">Date: <span>date</span></li>
-          </ul>
-        </div> */}

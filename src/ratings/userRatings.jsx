@@ -29,7 +29,7 @@ export function Ratings() {
               <li className="list-group-item">Rating: {album.rating}</li>
               <li className="list-group-item">Date: {album.date}</li>
               <li className="list-group-item button">
-                <a href="https://open.spotify.com" className="btn btn-primary">View Album on Spotify</a>
+                <a href={album.url} className="btn btn-primary">View Album on Spotify</a>
               </li>
             </ul>
           </div>
