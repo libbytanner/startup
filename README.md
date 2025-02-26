@@ -89,8 +89,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - All the functionality is mocked out, but more will come with the service deliverable. 
+- [x] **Hooks** - I used hooks to manage the state of different components, specifically areas like the album info that will be state dependent. 
 
 ## 🚀 Service deliverable
 

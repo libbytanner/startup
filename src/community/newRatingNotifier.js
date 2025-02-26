@@ -29,7 +29,7 @@ class NewRatingNotifier {
             };
 
             this.broadcastEvent(newAlbum)
-        }, 10000);
+        }, 7000);
     }
 
     broadcastEvent(value) {

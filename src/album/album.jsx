@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../forms.css'
+import '../forms.css';
+import  { RatingNotifier} from '../community/newRatingNotifier.js'
+
 
 
 export function Album(props) {
@@ -30,6 +32,7 @@ export function Album(props) {
     const date = new Date().toLocaleDateString();
     const newRating = { title: albumTitle, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl, user: username };
     updateAlbumsLocal(newRating);
+    RatingNotifier.broadcastEvent(rating)
     navigate('/ratings')
   }
   

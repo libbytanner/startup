@@ -25,15 +25,7 @@ export function Community() {
       return newEvents;
     })
   }
-
-  function createRatingsArray() {
-    const ratingsArray = [];
-    for (const [i, event] of albums.entries()) {
-      ratingsArray.push(
-        <div></div>
-      )
-    }
-  }
+  
   const recentRatings = [];
   for (const[i,album] of albums.entries()) {
     recentRatings.push(
