@@ -80,10 +80,12 @@ as well as for the page to leave ratings */
     #albumInfo {
         display: flex;
         flex-direction: column;
-        justify-content:center
+        justify-content:center;
+        margin: 1em;
+        width: 80vw;
     }
     #albumCover {
-        max-width: 450px;
+        width: 80vw;
         align-self: center;
     }
     #userInput {
