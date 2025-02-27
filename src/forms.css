@@ -72,7 +72,7 @@ as well as for the page to leave ratings */
     background-color: #e6612e !important;
 }
 
-@media ((orientation: portrait)){
+@media ((orientation: portrait)) and (max-width:600px){
     main {
         display: flex;
         flex-direction: column;
@@ -83,12 +83,17 @@ as well as for the page to leave ratings */
         justify-content:center;
         margin: 1em;
         width: 80vw;
+        padding: 2em;
     }
     #albumCover {
-        width: 70vw;
+        width: 60vw;
+        margin: 1em;
         align-self: center;
     }
     #userInput {
         display: flex;
+    }
+    #submit {
+        width: 60vw;
     }
 }
