@@ -74,4 +74,5 @@ It is helpful to remember that React creates a table of states, and React's job 
 
 Login functionality -- create a js authorization state class, then just write functions line "onLogin" and "onLogout" in which you change the authorization state, which then routes to a different page.  
 
-Hooks manage state-- with hooks you can change the state of different components
+Hooks manage state-- with hooks you can change the state of different components  
+Per my understanding, useState allows you to set and change the state, and useEffect allows you to run a function when the state changes. By default, useEffect runs every time the component is rendered, but you can declare when to run it. 
