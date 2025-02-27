@@ -67,7 +67,7 @@ export default function App() {
               setUsername(username);
             }}
           />} exact />
-          <Route path='/ratings' element={<Ratings />} />
+          <Route path='/ratings' element={<Ratings username={username}/>} />
           <Route path='/community' element={<Community />} />
           <Route path='/album' element={<Album username={username}/>} />
           <Route path='*' element={<NotFound />} />

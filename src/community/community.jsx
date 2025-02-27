@@ -25,7 +25,7 @@ export function Community() {
 
   React.useEffect(() => {
     localStorage.setItem('communityAlbums', JSON.stringify(albums))
-  })
+  }, [albums])
 
   function handleNewRating(event) {
     setAlbums((prevAlbums) => {
@@ -37,9 +37,7 @@ export function Community() {
     })
   }
 
-  const recentRatings = [];
-  for (const[i,album] of albums.entries()) {
-    recentRatings.push(
+  const recentRatings = albums.map((album) => (
       <div className="card h-100" key={album.id}>
         <img src="placeholder.png" className="card-img-top" alt="album cover"/>
         <div className="card-body">
@@ -57,7 +55,7 @@ export function Community() {
         </ul>
       </div>
     )
-    }
+  )
 
   return (
     <main>

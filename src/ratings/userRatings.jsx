@@ -3,20 +3,24 @@ import '../gallery.css'
 
 
 
-export function Ratings() {
-  const [albums, setAlbums] = React.useState([])
+export function Ratings(props) {
+  const [albums, setAlbums] = React.useState([]);
+  const username = props.username;
+
 
   React.useEffect(() => {
     const albumsText = localStorage.getItem('albums')
     if (albumsText) {
       setAlbums(JSON.parse(albumsText))
     }
-    console.log(albums)
+    // console.log(albums)
   }, [])
 
   const albumRatings = [];
   if (albums.length) {
     for (const[i,album] of albums.entries()) {
+      console.log(album);
+      if (album.user === username) {
       albumRatings.push(
         <div className="card h-100" key={album.id}>
             <img src="placeholder.png" className="card-img-top" alt="album cover"/>
@@ -34,6 +38,7 @@ export function Ratings() {
             </ul>
           </div>
       )
+    }
     }
   } else [
     <p>Please rate an album!</p>
