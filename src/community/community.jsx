@@ -17,14 +17,14 @@ export function Community() {
   }, [])
 
   React.useEffect(() => {
-    const albumsText = localStorage.getItem('communityAlbums')
+    const albumsText = localStorage.getItem('albums')
     if (albumsText) {
       setAlbums(JSON.parse(albumsText))
     }
   }, [])
 
   React.useEffect(() => {
-    localStorage.setItem('communityAlbums', JSON.stringify(albums))
+    localStorage.setItem('albums', JSON.stringify(albums))
   }, [albums])
 
   function handleNewRating(event) {
