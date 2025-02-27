@@ -16,12 +16,7 @@ export function Ratings(props) {
     // console.log(albums)
   }, [])
 
-  const albumRatings = [];
-  if (albums.length) {
-    for (const[i,album] of albums.entries()) {
-      console.log(album);
-      if (album.user === username) {
-      albumRatings.push(
+  const albumRatings = albums.filter(album => album.user === username).map((album) => ( 
         <div className="card h-100" key={album.id}>
             <img src="placeholder.png" className="card-img-top" alt="album cover"/>
             <div className="card-body">
@@ -38,11 +33,8 @@ export function Ratings(props) {
             </ul>
           </div>
       )
-    }
-    }
-  } else [
-    <p>Please rate an album!</p>
-  ]
+  )
+
 
   return (
     <main>

@@ -30,9 +30,7 @@ export function Community() {
   function handleNewRating(event) {
     setAlbums((prevAlbums) => {
       let newEvents = [event, ...prevAlbums];
-      if (newEvents.length > 20) {
-        newEvents = newEvents.slice(0, 20);
-      }
+
       return newEvents;
     })
   }
@@ -46,7 +44,7 @@ export function Community() {
           <span className="icon"><img src="icon.svg" width="25px"/></span>
         </div>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">Rating: {album.rating}</li>
+          <li className="list-group-item">Rating: {album.rating}/10</li>
           <li className="list-group-item">User: {album.user}</li>
           <li className="list-group-item">Date: {album.date}</li>
           <li className="list-group-item button">
@@ -60,7 +58,7 @@ export function Community() {
   return (
     <main>
       <div className="container">
-        {recentRatings}
+        {recentRatings.slice(0, 20)}
       </div>
     </main>
   );
