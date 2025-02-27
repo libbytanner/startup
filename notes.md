@@ -74,4 +74,4 @@ It is helpful to remember that React creates a table of states, and React's job 
 
 Login functionality -- create a js authorization state class, then just write functions line "onLogin" and "onLogout" in which you change the authorization state, which then routes to a different page.  
 
-Hooks manage state-- with hooks you can change the state of different 
+Hooks manage state-- with hooks you can change the state of different components
