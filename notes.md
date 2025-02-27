@@ -75,4 +75,5 @@ It is helpful to remember that React creates a table of states, and React's job 
 Login functionality -- create a js authorization state class, then just write functions line "onLogin" and "onLogout" in which you change the authorization state, which then routes to a different page.  
 
 Hooks manage state-- with hooks you can change the state of different components  
-Per my understanding, useState allows you to set and change the state, and useEffect allows you to run a function when the state changes. By default, useEffect runs every time the component is rendered, but you can declare when to run it. 
+Per my understanding, useState allows you to set and change the state, and useEffect allows you to run a function when the state changes. By default, useEffect runs every time the component is rendered, but you can declare when to run it.  
+Note from cs260 GitHub: "Hooks must be called at the top scope of the function and cannot be called inside of a loop or conditional. This restriction ensures that hooks are always called in the same order when a component is rendered"
