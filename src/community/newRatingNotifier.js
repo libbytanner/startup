@@ -5,6 +5,7 @@ class Rating {
         this.title = value.title;
         this.artist = value.artist;
         this.rating = value.rating;
+        this.date = value.date;
     }
 }
 
@@ -29,7 +30,7 @@ class NewRatingNotifier {
             };
 
             this.broadcastEvent(newAlbum)
-        }, 7000);
+        }, 10000);
     }
 
     broadcastEvent(value) {

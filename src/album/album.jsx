@@ -46,7 +46,8 @@ export function Album(props) {
     albums.unshift(newRating);
     albums = albums.slice(0, 20);
 
-    localStorage.setItem('albums', JSON.stringify(albums))
+    localStorage.setItem('albums', JSON.stringify(albums));
+    localStorage.setItem('communityAlbums', albums);
   }
   return (
     <main>

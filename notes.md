@@ -72,4 +72,6 @@ Adding routing is also super helpful, it is so cool that you can turn it into a 
 
 It is helpful to remember that React creates a table of states, and React's job is to change and update the states. 
 
-Login functionality -- create a js authorization state class, then just write functions line "onLogin" and "onLogout" in which you change the authorization state, which then routes to a different page. 
+Login functionality -- create a js authorization state class, then just write functions line "onLogin" and "onLogout" in which you change the authorization state, which then routes to a different page.  
+
+Hooks manage state-- with hooks you can change the state of different 

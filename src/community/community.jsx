@@ -9,12 +9,23 @@ export function Community() {
   const [albums, setAlbums] = React.useState([]);
 
   React.useEffect(() => {
-    RatingNotifier.addHandler(handleNewRating)
-
+    RatingNotifier.addHandler(handleNewRating);
+  
     return () => {
       RatingNotifier.removeHandler(handleNewRating)
     };
   }, [])
+
+  React.useEffect(() => {
+    const albumsText = localStorage.getItem('communityAlbums')
+    if (albumsText) {
+      setAlbums(JSON.parse(albumsText))
+    }
+  }, [])
+
+  React.useEffect(() => {
+    localStorage.setItem('communityAlbums', JSON.stringify(albums))
+  })
 
   function handleNewRating(event) {
     setAlbums((prevAlbums) => {
@@ -25,7 +36,7 @@ export function Community() {
       return newEvents;
     })
   }
-  
+
   const recentRatings = [];
   for (const[i,album] of albums.entries()) {
     recentRatings.push(
