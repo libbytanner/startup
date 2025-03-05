@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'));
 
-let users = {};
+let users = [];
 let ratings = [];
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
@@ -91,6 +91,7 @@ async function createUser(email, password) {
         token: uuid.v4(),
     };
     users.push(user);
+    return user;
 }
 
 async function findUser(field, value) {
