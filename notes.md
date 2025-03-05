@@ -81,3 +81,5 @@ Note from cs260 GitHub: "Hooks must be called at the top scope of the function a
 ## Service Notes  
 
 Dubug backend in vscode, frontend in browser.  
+
+I never knew how authentication works. First, when creating or verifying a user, you find if there is a user with the provided username and password, and the stored password is an encrypted version, and it is encrypted using hashing. I find the security aspect of this pretty interesting. The user is then generated a token, which is stored in a cookie, which will authorize them to access the rest of the app. 
