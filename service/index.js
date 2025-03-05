@@ -90,6 +90,19 @@ async function createUser(email, password) {
     users.push(user);
 }
 
+async function findUser(field, value) {
+    if (!value) return null;
+    return users.find((u) => u[field] === value);
+}
+
+function setAuthCookie(res, authToken) {
+    res.cookie(authCookieName, authToken, {
+        secure: true,
+        httpOnly: true,
+        sameSite: 'strict',
+    });
+}
+
 app.listen(port, ()=> {
     console.log(`Listening on port ${port}`)
 })
