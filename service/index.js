@@ -107,6 +107,10 @@ function setAuthCookie(res, authToken) {
     });
 }
 
+function postRating(rating_json) {
+    ratings.push(rating_json)
+}
+
 app.listen(port, ()=> {
     console.log(`Listening on port ${port}`)
 })
