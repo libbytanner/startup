@@ -28,9 +28,14 @@ export function Album(props) {
     updateRating(e.target.value);
   }
 
-  function saveRating(rating) {
+  async function saveRating(rating) {
     const date = new Date().toLocaleDateString();
     const newRating = { title: albumTitle, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl, user: username };
+    await fetch('/api/score', {
+      method:'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newRating),
+    });
     updateAlbumsLocal(newRating);
     RatingNotifier.broadcastEvent(rating)
     navigate('/ratings')
@@ -48,6 +53,7 @@ export function Album(props) {
 
     localStorage.setItem('albums', JSON.stringify(albums));
   }
+
   return (
     <main>
       <img id="albumCover" src={imageUrl}/>
