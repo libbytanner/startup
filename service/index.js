@@ -70,7 +70,7 @@ apiRouter.get('/rating', verifyAuth, (_req, res) => {
 // Submit Rating
 apiRouter.post('/rating', verifyAuth, (req, res) => {
     ratings = postRating(req.body);
-    res.send(scores);
+    res.send(ratings);
 });
 
 //Default error handler
@@ -108,7 +108,8 @@ function setAuthCookie(res, authToken) {
 }
 
 function postRating(rating_json) {
-    ratings.push(rating_json)
+    ratings.push(rating_json);
+    return ratings;
 }
 
 app.listen(port, ()=> {
