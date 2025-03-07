@@ -12,6 +12,7 @@ export function Album(props) {
   const [year, setYear] = React.useState('Year');
   const [rating, updateRating] = React.useState('5');
   const [albumUrl, setAlbumUrl] = React.useState('spotify.com')
+  const [albumId, setAlbumId] = React.useState('Key')
   const username = props.username;
   const navigate = useNavigate();
 
@@ -22,6 +23,7 @@ export function Album(props) {
     setArtist('Artist');
     setYear('Year');
     setAlbumUrl('https://open.spotify.com');
+    setAlbumId(Date.now())
   }, [])
 
   function onChange(e) {
@@ -30,30 +32,15 @@ export function Album(props) {
 
   async function saveRating(rating) {
     const date = new Date().toLocaleDateString();
-    const newRating = { title: albumTitle, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl, user: username };
-
-    await fetch('/api/score', {
-      method:'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(newRating),
-    });
-    
-    updateAlbumsLocal(newRating);
-    RatingNotifier.broadcastEvent(rating)
-    navigate('/ratings')
-  }
-  
-  function updateAlbumsLocal(newRating) {
-    let albums = [];
-    const albumsText = localStorage.getItem("albums");
-    if (albumsText) {
-      albums = JSON.parse(albumsText);
-    }
-
-    albums.unshift(newRating);
-    // albums = albums.slice(0, 20);
-
-    localStorage.setItem('albums', JSON.stringify(albums));
+    const newRating = { title: albumTitle, id: albumId, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl, user: username };
+    console.log(newRating)
+      await fetch('http://localhost:5174/api/rating', {
+        method:'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newRating),
+      });
+    RatingNotifier.broadcastEvent(newRating);
+    // navigate('/ratings');
   }
 
   return (
@@ -65,14 +52,14 @@ export function Album(props) {
           <h3>{artist}</h3>
           <h3>{year}</h3>
         </div>
-        <form id="userInput" to="albums" onSubmit={(e) => e.preventDefault()}>
+        <div id="userInput" to="albums" onSubmit={(e) => e.preventDefault()}>
           <div id="albumslider">
-            <label for="rating">Rating</label>
+            <label htmlFor="rating">Rating</label>
             <input type="range" className="form-range" min="1" max="10" step="0.5" name="varRange" onChange={onChange}></input>
-              <output id="rangeOutput" for="rating">{rating}/10</output>
+              <output id="rangeOutput" htmlFor="rating">{rating}/10</output>
           </div>
           <button id="submit" type="button" className="btn btn-primary" onClick={() => saveRating(rating)}>Submit Rating</button>
-        </form>
+        </div>
       </div>
     </main>
   );

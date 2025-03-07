@@ -1,7 +1,7 @@
 import React from 'react';
 import '../gallery.css';
 
-import { RatingNotifier} from './newRatingNotifier.js'
+import { RatingNotifier } from './newRatingNotifier.js'
 
 
 export function Community() {
@@ -17,20 +17,16 @@ export function Community() {
   }, [])
 
   React.useEffect(() => {
-    const albumsText = localStorage.getItem('albums')
-    if (albumsText) {
-      setAlbums(JSON.parse(albumsText))
-    }
-  }, [])
-
-  React.useEffect(() => {
-    localStorage.setItem('albums', JSON.stringify(albums))
-  }, [albums])
+    fetch('http://localhost:5174/api/ratings')
+      .then((response) => response.json())
+      .then((ratings) => {
+        setAlbums(ratings);
+      });
+  }, []);
 
   function handleNewRating(event) {
     setAlbums((prevAlbums) => {
       let newEvents = [event, ...prevAlbums];
-
       return newEvents;
     })
   }
