@@ -9,10 +9,11 @@ export function Ratings(props) {
 
 
   React.useEffect(() => {
-    const albumsText = localStorage.getItem('albums')
-    if (albumsText) {
-      setAlbums(JSON.parse(albumsText))
-    }
+    fetch('/api/ratings')
+    .then((response) => response.json())
+    .then((albums) => {
+      setAlbums(albums)
+    })
     // console.log(albums)
   }, [])
 
