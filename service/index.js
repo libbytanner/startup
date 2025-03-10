@@ -53,15 +53,24 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 });
 
 // // // Middleware to verify that the user is authorized to call an endpoint
+const verifyAuth = async (res, req, next) => {
+    const user = await findUser('token', req.cookies[authCookieName]);
+    if (user) {
+        next();
+    }
+    else {
+        res.status(401).send({ msg: 'Unauthorized'})
+    }
+}
 
 
 // Get Ratings
-apiRouter.get('/ratings', (_req, res) => {
+apiRouter.get('/ratings', verifyAuth, (_req, res) => {
     res.json(ratings);
 });
 
 // Submit Rating
-apiRouter.post('/rating', (req, res) => {
+apiRouter.post('/rating', verifyAuth, (req, res) => {
     ratings = postRating(req.body);
     res.send(ratings);
 });
