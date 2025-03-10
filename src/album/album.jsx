@@ -40,7 +40,7 @@ export function Album(props) {
         body: JSON.stringify(newRating),
       });
     RatingNotifier.broadcastEvent(newRating);
-    // navigate('/ratings');
+    navigate('/ratings');
   }
 
   return (
