@@ -21,9 +21,9 @@ export function Unauthenticated(props) {
         <h1>Welcome to SoundScope!</h1>
         <p>Please log in or create an account</p>
         <form method="get" to="ratings" className="login-form">
-          <div className="input-group mb-3" id="email">
+          <div className="input-group mb-3" id="username">
             <span className="input-group-text">✉</span>
-            <input className="form-control" type="text" placeholder="janedoe@place.com" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input className="form-control" type="text" placeholder="janedoe123" value={username} onChange={(e) => setUsername(e.target.value)}/>
           </div>
           <div className="input-group mb-3" id="password">
             <span className="input-group-text">ꗃ</span>

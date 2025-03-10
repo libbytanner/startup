@@ -34,7 +34,7 @@ export function Album(props) {
     const date = new Date().toLocaleDateString();
     const newRating = { title: albumTitle, id: albumId, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl, user: username };
     console.log(newRating)
-      await fetch('http://localhost:5174/api/rating', {
+      await fetch('http://localhost:5173/api/rating', {
         method:'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newRating),
