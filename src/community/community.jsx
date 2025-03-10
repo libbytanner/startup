@@ -17,7 +17,7 @@ export function Community() {
   }, [])
 
   React.useEffect(() => {
-    fetch('http://localhost:5173/api/ratings')
+    fetch('/api/ratings')
       .then((response) => response.json())
       .then((ratings) => {
         setAlbums(ratings);
