@@ -54,6 +54,10 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 
 // // // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
+    console.log("Cookies received:", req.cookies);
+    console.log("Auth Cookie Name:", authCookieName);
+    console.log("Auth Token from Cookie:", req.cookies?.[authCookieName]);
+
     const user = await findUser('token', req.cookies[authCookieName]);
     if (user) {
         next();
@@ -65,12 +69,12 @@ const verifyAuth = async (req, res, next) => {
 
 
 // Get Ratings
-apiRouter.get('/ratings', verifyAuth, (_req, res) => {
+apiRouter.get('/ratings', (_req, res) => {
     res.json(ratings);
 });
 
 // Submit Rating
-apiRouter.post('/rating', verifyAuth, (req, res) => {
+apiRouter.post('/rating', (req, res) => {
     ratings = postRating(req.body);
     res.send(ratings);
 });

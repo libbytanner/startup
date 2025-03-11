@@ -14,7 +14,7 @@ export function Ratings(props) {
     .then((albums) => {
       setAlbums(albums)
     })
-    // console.log(albums)
+    console.log(albums)
   }, [])
 
   const albumRatings = albums.filter(album => album.user === username).map((album) => ( 

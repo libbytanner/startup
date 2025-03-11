@@ -38,7 +38,6 @@ export function Album(props) {
         method:'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newRating),
-        credentials: 'include'
       });
     RatingNotifier.broadcastEvent(newRating);
     navigate('/ratings');
