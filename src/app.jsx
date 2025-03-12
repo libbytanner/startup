@@ -2,6 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
+const clientID = import.meta.env.VITE_CLIENT_ID;
+const clientSecret = import.meta.env.VITE_CLIENT_SECRET;
 
 import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import { Login } from './login/login';
@@ -17,37 +19,57 @@ export default function App() {
   const [searchInput, setSearchInput] = React.useState('');
   const [spotifyToken, setToken] = React.useState('');
   const navigate = useNavigate()
+  const token = '';
 
   React.useEffect(() => {
     setUsername(username)
   })
 
   React.useEffect(() => {
-    const interval = setInterval(() => {
-      fetch('/api/spotifyToken', {
-        method: "POST",
-        headers: {"Content-Type": "application/x-www-form-urlencoded"},
-      })
-      .then((x) => x.json())
-      .then((response) => setToken(response.access_token))
-    }, 360000);
-    return () => clearInterval(interval)
-    
-  }, [])
+    const fetchToken = async() => {
+    fetch("https://accounts.spotify.com/api/token", {
+      method: "POST",
+      headers: {"Content-Type": "application/x-www-form-urlencoded"},
+      body: `grant_type=client_credentials&client_id=${clientID}&client_secret=${clientSecret}`
+    })
+      .then((result) => result.json())
+      .then((data) => {setToken(data.access_token)})
+    }
 
-  const search = async (event) => {
+    fetchToken();
+  }, []);
+
+
+
+  async function searchAlbum(token) {
+    await fetch(`https://api.spotify.com/v1/search?q=${searchInput}&type=album`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json", 
+        Authorization: "Bearer " + spotifyToken,
+      }
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      return result.albums.items;
+    })
+    .catch();
+
+    const albumResult = result.albums.items[0];
+
+    const artist = albumResult.artists;
+    const title = albumResult.name;
+    const id = Date.now();
+    const cover = "public/placeholder.png";
+    const year = albumResult.release_date;
+
+    navigate('/album', {state: {artist, title, id, cover, year}});
+  }
+
+
+  function search(event, token) {
     if (event.key === 'Enter') {
-      // let searchURL = 'https://api.spotify.com/v1/search?q=' + searchInput + '&type=album'
-      // await fetch(searchURL, {
-      //   method: "GET",
-      //   headers: {
-      //     "Content-Type": "application/json", 
-      //     Authorization: "Bearer " + spotifyToken
-      //   }
-      // })
-      // .then((response) => response.json())
-      // .then((album) => )
-      navigate('/album', {state: searchInput});
+      searchAlbum(token);
     }
   }
 
@@ -73,7 +95,7 @@ export default function App() {
                   </li>
                   <li className="nav-item">
                     <form id="search" className="d-flex" role="search">
-                      <input className="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search" onChange={(e) => setSearchInput(e.target.value)}onKeyDown={search}/>
+                      <input className="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search" onChange={(e) => setSearchInput(e.target.value)} onKeyDown={(e) => search(e, token)}/>
                     </form>
                   </li>
                 </ul>
