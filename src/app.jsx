@@ -41,7 +41,7 @@ export default function App() {
 
 
   async function searchAlbum() {
-    await fetch(`https://api.spotify.com/v1/search?q=${searchInput}&type=album`, {
+    await fetch(`https://api.spotify.com/v1/search?q=${searchInput}&type=album&limit=1`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json", 
@@ -49,24 +49,24 @@ export default function App() {
       }
     })
       .then((response) => response.json())
-      .then((result) => {
-        return result.albums.items;
-      })
+      .then((data) => {
+        return data.albums.items
+      });
   }
 
 
-  function search(event) {
+  async function search(event) {
     if (event.key === 'Enter') {
-      const albums = searchAlbum();
-      const albumResult = albums[0];
-      console.log("Album Result: ", albumResult)
-      const artist = albumResult.artists;
-      const title = albumResult.name;
-      const id = Date.now();
-      const cover = "public/placeholder.png";
-      const year = albumResult.release_date;
-
-      navigate('/album', {state: {artist, title, id, cover, year}});
+      await searchAlbum()
+        .then((albumResult) => {
+          console.log("Album Result: ", albumResult)
+          const artist = albumResult.artists;
+          const title = albumResult.name;
+          const id = Date.now();
+          const cover = "public/placeholder.png";
+          const year = albumResult.release_date;
+          navigate('/album', {state: {artist, title, id, cover, year}});
+        })
     }
   }
 
