@@ -18,6 +18,13 @@
 .card-img-top {
     width: 94%;
     align-self: center;
+    margin: 0.5em;
+}
+#cover {
+    border-radius: 4%;
+    border-color: #181818;
+    border-style:inherit;
+    border-width: 8px;
 }
 
 .card .icon {

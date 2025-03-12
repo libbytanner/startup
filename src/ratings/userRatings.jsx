@@ -19,10 +19,10 @@ export function Ratings(props) {
 
   const albumRatings = albums.filter(album => album.user === username).map((album) => ( 
         <div className="card h-100" key={album.id}>
-            <img src="placeholder.png" className="card-img-top" alt="album cover"/>
+            <img src={album.cover} className="card-img-top" id="cover" alt="album cover"/>
             <div className="card-body">
               <h5 className="card-title">{album.title}</h5>
-              <p className="card-text">Artist</p>
+              <p className="card-text">{album.artist}</p>
               <span className="icon"><img src="icon.svg" width="25px"/></span>
             </div>
             <ul className="list-group list-group-flush">
