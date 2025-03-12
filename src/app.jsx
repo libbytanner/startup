@@ -19,7 +19,6 @@ export default function App() {
   const [searchInput, setSearchInput] = React.useState('');
   const [spotifyToken, setToken] = React.useState('');
   const navigate = useNavigate()
-  const token = '';
 
   React.useEffect(() => {
     setUsername(username)
@@ -41,7 +40,7 @@ export default function App() {
 
 
 
-  async function searchAlbum(token) {
+  async function searchAlbum() {
     await fetch(`https://api.spotify.com/v1/search?q=${searchInput}&type=album`, {
       method: "GET",
       headers: {
@@ -49,27 +48,25 @@ export default function App() {
         Authorization: "Bearer " + spotifyToken,
       }
     })
-    .then((response) => response.json())
-    .then((result) => {
-      return result.albums.items;
-    })
-    .catch();
-
-    const albumResult = result.albums.items[0];
-
-    const artist = albumResult.artists;
-    const title = albumResult.name;
-    const id = Date.now();
-    const cover = "public/placeholder.png";
-    const year = albumResult.release_date;
-
-    navigate('/album', {state: {artist, title, id, cover, year}});
+      .then((response) => response.json())
+      .then((result) => {
+        return result.albums.items;
+      })
   }
 
 
-  function search(event, token) {
+  function search(event) {
     if (event.key === 'Enter') {
-      searchAlbum(token);
+      const albums = searchAlbum();
+      const albumResult = albums[0];
+      console.log("Album Result: ", albumResult)
+      const artist = albumResult.artists;
+      const title = albumResult.name;
+      const id = Date.now();
+      const cover = "public/placeholder.png";
+      const year = albumResult.release_date;
+
+      navigate('/album', {state: {artist, title, id, cover, year}});
     }
   }
 
@@ -95,7 +92,7 @@ export default function App() {
                   </li>
                   <li className="nav-item">
                     <form id="search" className="d-flex" role="search">
-                      <input className="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search" onChange={(e) => setSearchInput(e.target.value)} onKeyDown={(e) => search(e, token)}/>
+                      <input className="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search" onChange={(e) => setSearchInput(e.target.value)} onKeyDown={(e) => search(e)}/>
                     </form>
                   </li>
                 </ul>
