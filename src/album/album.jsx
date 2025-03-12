@@ -5,26 +5,25 @@ import  { RatingNotifier} from '../community/newRatingNotifier.js'
 
 
 export function Album(props) {
-  const [albumTitle, setAlbumTitle] = React.useState('Title')
-  const [imageUrl, setImageUrl] = React.useState('placeholder.png');
-  const [artist, setArtist] = React.useState('Artist');
-  const [year, setYear] = React.useState('Year');
+  // const [albumTitle, setAlbumTitle] = React.useState('Title')
+  // const [imageUrl, setImageUrl] = React.useState('placeholder.png');
+  // const [artist, setArtist] = React.useState('Artist');
+  // const [year, setYear] = React.useState('Year');
   const [rating, updateRating] = React.useState('5');
   const [albumUrl, setAlbumUrl] = React.useState('spotify.com')
-  const [albumId, setAlbumId] = React.useState('Key')
+  // const [albumId, setAlbumId] = React.useState('Key')
   const username = props.username;
   const navigate = useNavigate();
   const location = useLocation();
   const album = location.state;
 
-  React.useEffect(() => {
-        setAlbumTitle(album.name);
-        setImageUrl('placeholder.png'); 
-        setArtist(album.artists[0].name);
-        setYear(album.release_date);
-        setAlbumUrl(album.external_urls.spotify);
-        setAlbumId(Date.now())
-      })
+  // React.useEffect(() => {
+  //       setAlbumTitle(album.title);
+  //       setImageUrl(album.cover); 
+  //       setArtist(album.artists[0].name);
+  //       setYear(album.release_date);
+  //       // setAlbumUrl(album.external_urls.spotify);
+  //     })
     // setAlbumTitle('Album')
     // setImageUrl('placeholder.png');
     // setArtist('Artist');
@@ -39,7 +38,7 @@ export function Album(props) {
 
   async function saveRating(rating) {
     const date = new Date().toLocaleDateString();
-    const newRating = { title: albumTitle, id: albumId, cover: imageUrl, artist: artist, date: date, rating: rating, albumUrl: albumUrl, user: username };
+    const newRating = { title: album.title, id: album.id, cover: album.cover, artist: album.artist, release_date: album.year, rating: rating, rating_date: date, albumUrl: albumUrl, user: username };
     console.log(newRating)
       await fetch('/api/rating', {
         method:'POST',
@@ -52,12 +51,12 @@ export function Album(props) {
 
   return (
     <main>
-      <img id="albumCover" src={imageUrl}/>
+      <img id="albumCover" src={album.cover}/>
       <div id="albumInfo">
         <div>
-          <h1>{albumTitle}</h1>
-          <h3>{artist}</h3>
-          <h3>{year}</h3>
+          <h1>{album.title}</h1>
+          <h3>{album.artist}</h3>
+          <h3>{album.year}</h3>
         </div>
         <div id="userInput" to="albums" onSubmit={(e) => e.preventDefault()}>
           <div id="albumslider">
