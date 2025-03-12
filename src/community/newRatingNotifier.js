@@ -19,10 +19,12 @@ class NewRatingNotifier {
             const rating = Math.floor(Math.random() * 10) + 1;
             const date = new Date().toLocaleDateString();
             const username = 'cool person';
+            const cover = "placeholder.png"
 
             const newAlbum = {
                 id: Date.now(),
                 name: username,
+                cover: "placeholder.png",
                 title: "Good Album",
                 artist: 'good band',
                 rating: rating,

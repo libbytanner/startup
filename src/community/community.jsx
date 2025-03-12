@@ -33,7 +33,7 @@ export function Community() {
 
   const recentRatings = albums.map((album) => (
       <div className="card h-100" key={album.id}>
-        <img src="placeholder.png" className="card-img-top" alt="album cover"/>
+        <img src={album.cover} id="cover" className="card-img-top" alt="album cover"/>
         <div className="card-body">
           <h5 className="card-title">{album.title}</h5>
           <p className="card-text">{album.artist}</p>
