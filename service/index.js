@@ -7,6 +7,9 @@ const app = express();
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 const authCookieName = 'token';
 
+const clientID = process.env.VITE_CLIENT_ID;
+const clientSecret = process.env.VITE_CLIENT_SECRET;
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'));
@@ -78,6 +81,30 @@ apiRouter.post('/rating', (req, res) => {
     ratings = postRating(req.body);
     res.send(ratings);
 });
+
+// Get Access Token
+apiRouter.post('/spotifyToken', async (_req, res) => {
+    result = await fetch("https://accounts.spotify.com/api/token", {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: `grant_type=client_credentials&client_id=${clientID}&client_secret=${clientSecret}`
+    })
+    res.send(result)
+});
+
+// Search
+apiRouter.get('/search', async (req, res) => {
+    let searchURL = 'https://api.spotify.com/v1/search?q=' + req.body.searchInput + '&type=album'
+    result = fetch(searchURL, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json", 
+          Authorization: "Bearer " + spotifyToken,
+        }
+      })
+    
+    res.send(result)
+})
 
 //Default error handler
 app.use(function (err, req, res, next) {

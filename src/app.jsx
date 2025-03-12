@@ -14,15 +14,40 @@ export default function App() {
   const [username, setUsername] = React.useState(localStorage.getItem('username') || "");
   const currentAuthState = username ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
+  const [searchInput, setSearchInput] = React.useState('');
+  const [spotifyToken, setToken] = React.useState('');
   const navigate = useNavigate()
 
   React.useEffect(() => {
     setUsername(username)
   })
 
-  const search = (event) => {
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      fetch('/api/spotifyToken', {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+      })
+      .then((x) => x.json())
+      .then((response) => setToken(response.access_token))
+    }, 360000);
+    return () => clearInterval(interval)
+    
+  }, [])
+
+  const search = async (event) => {
     if (event.key === 'Enter') {
-      navigate('/album')
+      // let searchURL = 'https://api.spotify.com/v1/search?q=' + searchInput + '&type=album'
+      // await fetch(searchURL, {
+      //   method: "GET",
+      //   headers: {
+      //     "Content-Type": "application/json", 
+      //     Authorization: "Bearer " + spotifyToken
+      //   }
+      // })
+      // .then((response) => response.json())
+      // .then((album) => )
+      navigate('/album', {state: searchInput});
     }
   }
 
@@ -48,7 +73,7 @@ export default function App() {
                   </li>
                   <li className="nav-item">
                     <form id="search" className="d-flex" role="search">
-                      <input className="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search" onKeyDown={search}/>
+                      <input className="form-control me-2" type="search" placeholder="Search album to rate" aria-label="Search" onChange={(e) => setSearchInput(e.target.value)}onKeyDown={search}/>
                     </form>
                   </li>
                 </ul>
@@ -69,7 +94,7 @@ export default function App() {
           />} exact />
           <Route path='/ratings' element={<Ratings username={username}/>} />
           <Route path='/community' element={<Community />} />
-          <Route path='/album' element={<Album username={username}/>} />
+          <Route path='/album' element={<Album username={username} token={spotifyToken}/>} />
           <Route path='*' element={<NotFound />} />
         </Routes>
 

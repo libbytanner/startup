@@ -1,8 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import '../forms.css';
 import  { RatingNotifier} from '../community/newRatingNotifier.js'
-
 
 
 export function Album(props) {
@@ -15,15 +14,38 @@ export function Album(props) {
   const [albumId, setAlbumId] = React.useState('Key')
   const username = props.username;
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const searchInput = location.state;
+  const spotifyToken = props.token;
 
   React.useEffect(() => {
-    setAlbumTitle('Album')
-    setImageUrl('placeholder.png');
-    setArtist('Artist');
-    setYear('Year');
-    setAlbumUrl('https://open.spotify.com');
-    setAlbumId(Date.now())
+    // let searchURL = 'https://api.spotify.com/v1/search?q=' + searchInput + '&type=album'
+    //   fetch(searchURL, {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-Type": "application/json", 
+    //       Authorization: "Bearer " + spotifyToken,
+    //       mode: "no-cors",
+    //     }
+    //   })
+    fetch('/search', {
+      headers: { "searchInput": searchInput}
+    })
+      .then((response) => response.json())
+      .then((album) => {
+        setAlbumTitle(album.name);
+        setImageUrl(album.images.url); 
+        setArtist(album.artists[0].name);
+        setYear(album.release_date);
+        setAlbumUrl(album.external_urls.spotify);
+        setAlbumId(Date.now())
+      })
+    // setAlbumTitle('Album')
+    // setImageUrl('placeholder.png');
+    // setArtist('Artist');
+    // setYear('Year');
+    // setAlbumUrl('https://open.spotify.com');
+    // setAlbumId(Date.now())
   }, [])
 
   function onChange(e) {

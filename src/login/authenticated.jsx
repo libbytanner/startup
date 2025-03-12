@@ -6,11 +6,11 @@ import './authenticated.css';
 export function Authenticated(props) {
     const navigate = useNavigate();
     
-    function logout() {
-        localStorage.removeItem('username');
-        console.log('logging out')
-        console.log(localStorage.getItem('username'))
-        props.onLogout();
+    async function logout() {
+      // await fetch('/api/auth/logout', {
+      //   method: "DELETE"
+      // })
+      props.onLogout();
     }
 
     return (

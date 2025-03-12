@@ -27,7 +27,6 @@ export function Unauthenticated(props) {
       });
       if (response?.status === 200) {
         localStorage.setItem('username', username);
-        console.log("set username in local storage")
         props.onLogin(username);
       } else {
         const body = await response.json();
