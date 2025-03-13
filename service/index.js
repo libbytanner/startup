@@ -54,10 +54,6 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 
 // // // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
-    console.log("Cookies received:", req.cookies);
-    console.log("Auth Cookie Name:", authCookieName);
-    console.log("Auth Token from Cookie:", req.cookies?.[authCookieName]);
-
     const user = await findUser('token', req.cookies[authCookieName]);
     if (user) {
         next();
@@ -80,18 +76,14 @@ apiRouter.post('/rating', verifyAuth, (req, res) => {
 
 // Get Access Token
 apiRouter.post('/spotifyToken', async (_req, res) => {
-    console.log("Client ID:", clientID);
-    console.log("Client Secret:", clientSecret ? "Exists" : "MISSING");
 
     await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {"Content-Type": "application/x-www-form-urlencoded"},
         body: `grant_type=client_credentials&client_id=${clientID}&client_secret=${clientSecret}`
     })
-    console.log("Spotify API response:", result);
 
     result = await result.json();
-    console.log("Parsed Spotify response:", result);
 
     res.send(result)
     });
