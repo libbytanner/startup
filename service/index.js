@@ -61,20 +61,19 @@ const verifyAuth = async (req, res, next) => {
     const user = await findUser('token', req.cookies[authCookieName]);
     if (user) {
         next();
+    } else {
+        res.status(401).send({ msg: 'Unauthorized' })
     }
-    else {
-        res.status(401).send({ msg: 'Unauthorized'})
-    }
-}
+};
 
 
 // Get Ratings
-apiRouter.get('/ratings', (_req, res) => {
+apiRouter.get('/ratings', verifyAuth, (_req, res) => {
     res.json(ratings);
 });
 
 // Submit Rating
-apiRouter.post('/rating', (req, res) => {
+apiRouter.post('/rating', verifyAuth, (req, res) => {
     ratings = postRating(req.body);
     res.send(ratings);
 });
@@ -96,20 +95,6 @@ apiRouter.post('/spotifyToken', async (_req, res) => {
 
     res.send(result)
     });
-
-// Search
-// apiRouter.get('/search', async (req, res) => {
-//     let searchURL = 'https://api.spotify.com/v1/search?q=' + req.body.searchInput + '&type=album'
-//     result = fetch(searchURL, {
-//         method: "GET",
-//         headers: {
-//           "Content-Type": "application/json", 
-//           Authorization: "Bearer " + spotifyToken,
-//         }
-//       })
-    
-//     res.send(result)
-// })
 
 //Default error handler
 app.use(function (err, req, res, next) {
