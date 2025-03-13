@@ -5,7 +5,9 @@ class Rating {
         this.title = value.title;
         this.artist = value.artist;
         this.rating = value.rating;
-        this.date = value.date;
+        this.release_date = value.release_date;
+        this.rating_date = value.rating_date;
+        this.cover = value.cover;
     }
 }
 
@@ -19,16 +21,17 @@ class NewRatingNotifier {
             const rating = Math.floor(Math.random() * 10) + 1;
             const date = new Date().toLocaleDateString();
             const username = 'cool person';
-            const cover = "placeholder.png"
 
             const newAlbum = {
-                id: Date.now(),
-                name: username,
-                cover: "placeholder.png",
                 title: "Good Album",
-                artist: 'good band',
-                rating: rating,
-                date: date,
+                id: Date.now(), 
+                cover: "placeholder.png", 
+                artist: "good band", 
+                release_date: "2025", 
+                rating: rating, 
+                rating_date: date, 
+                url: "www.spotify.com", 
+                user: "cool person"
             };
 
             this.broadcastEvent(newAlbum)
