@@ -70,8 +70,9 @@ export default function App() {
         const id = Date.now();
         const cover = album.images[0].url;
         const year = album.release_date;
+        const url = album.external_urls.spotify;
 
-        const albumPckg = {artists: artist, title: title, id: id, cover: cover, year: year};
+        const albumPckg = {artist: artist, title: title, id: id, cover: cover, year: year, url: url};
         console.log("Navigating to /album with data:", albumPckg);
 
         navigate('/album', {state: albumPckg});

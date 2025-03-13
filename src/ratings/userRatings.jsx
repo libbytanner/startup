@@ -27,7 +27,7 @@ export function Ratings(props) {
             </div>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">Rating: {album.rating}</li>
-              <li className="list-group-item">Date: {album.date}</li>
+              <li className="list-group-item">Date: {album.release_date}</li>
               <li className="list-group-item button">
                 <a href={album.url} className="btn btn-primary">View Album on Spotify</a>
               </li>

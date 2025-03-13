@@ -38,7 +38,7 @@ export function Album(props) {
 
   async function saveRating(rating) {
     const date = new Date().toLocaleDateString();
-    const newRating = { title: album.title, id: album.id, cover: album.cover, artist: album.artist, release_date: album.year, rating: rating, rating_date: date, albumUrl: albumUrl, user: username };
+    const newRating = { title: album.title, id: album.id, cover: album.cover, artist: album.artist, release_date: album.year, rating: rating, rating_date: date, url: album.url, user: username };
     console.log(newRating)
       await fetch('/api/rating', {
         method:'POST',
