@@ -11,6 +11,7 @@ import { Ratings } from './ratings/userRatings';
 import { Community } from './community/community';
 import { AuthState } from './login/authState';
 import { Album } from './album/album';
+import { Search } from './search/searchResults';
 
 export default function App() {
   const [username, setUsername] = React.useState(localStorage.getItem('username') || "");
@@ -43,7 +44,7 @@ export default function App() {
       event.preventDefault();
       console.log("Search function triggered, searchInput:", searchInput);
 
-      let response = await fetch(`https://api.spotify.com/v1/search?q=${searchInput}&type=album&limit=1`, {
+      let response = await fetch(`https://api.spotify.com/v1/search?q=${searchInput}&type=album`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json", 
@@ -59,23 +60,24 @@ export default function App() {
       const data = await response.json();
       console.log("Fetched Data:", data);
 
-      const album = data.albums.items[0];
-      console.log("Album Result:", album)
+      const album = data.albums.items;
+      console.log("Album:", album)
       
         if (!album) {
           console.log("No Album!!!! :((")
         }
-        const artist = album.artists[0].name;
-        const title = album.name;
-        const id = Date.now();
-        const cover = album.images[0].url;
-        const year = album.release_date;
-        const url = album.external_urls.spotify;
+        // const artist = album.artists[0].name;
+        // const title = album.name;
+        // const id = Date.now();
+        // const cover = album.images[0].url;
+        // const year = album.release_date;
+        // const url = album.external_urls.spotify;
 
-        const albumPckg = {artist: artist, title: title, id: id, cover: cover, year: year, url: url};
-        console.log("Navigating to /album with data:", albumPckg);
+        // const albumPckg = {artist: artist, title: title, id: id, cover: cover, year: year, url: url};
+        // console.log("Navigating to /album with data:", albumPckg);
 
-        navigate('/album', {state: albumPckg});
+        // navigate('/album', {state: albumPckg});
+        navigate('/search', {state: {album}})
       }
     }
 
@@ -123,6 +125,7 @@ export default function App() {
           <Route path='/ratings' element={<Ratings username={username}/>} />
           <Route path='/community' element={<Community />} />
           <Route path='/album' element={<Album username={username} token={spotifyToken}/>} />
+          <Route path='/search' element={<Search />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
 
