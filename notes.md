@@ -84,5 +84,11 @@ Dubug backend in vscode, frontend in browser.
 
 I never knew how authentication works. First, when creating or verifying a user, you find if there is a user with the provided username and password, and the stored password is an encrypted version, and it is encrypted using hashing. I find the security aspect of this pretty interesting. The user is then generated a token, which is stored in a cookie, which will authorize them to access the rest of the app.   
 
+I figured out that with data you want to keep from the client side, you can put it in a .env file, and import the values. If you put the .env into gitignore, they won't be pushed to Github. I still am not quite sure how to keep it completely hidden from the frontend.  
+-- i figured this out. Store them in the database!!  
+
+Backend service and Frontend are separate files. The frontend makes calls to the backend, which can also make calls to third party endpoints. You can also call third party endpoints from the frontend. 
+
+
 MAILINATOR  
 

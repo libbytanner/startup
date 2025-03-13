@@ -2,8 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
-const clientID = import.meta.env.VITE_CLIENT_ID;
-const clientSecret = import.meta.env.VITE_CLIENT_SECRET;
 
 import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import { Login } from './login/login';
@@ -18,32 +16,34 @@ export default function App() {
   const currentAuthState = username ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
   const [searchInput, setSearchInput] = React.useState('');
-  const [spotifyToken, setToken] = React.useState('');
+  const [spotifyToken, setToken] = React.useState(null);
   const navigate = useNavigate()
 
   React.useEffect(() => {
-    setUsername(username)
+    setUsername(username);
   })
 
   React.useEffect(() => {
-    const fetchToken = async() => {
-    fetch("https://accounts.spotify.com/api/token", {
-      method: "POST",
-      headers: {"Content-Type": "application/x-www-form-urlencoded"},
-      body: `grant_type=client_credentials&client_id=${clientID}&client_secret=${clientSecret}`
-    })
-      .then((result) => result.json())
-      .then((data) => {setToken(data.access_token)})
+    if(authState === AuthState.Authenticated) {
+      fetchToken();
     }
-
-    fetchToken();
-  }, []);
+    
+  }, [authState])
+  
+  const fetchToken = async() => {
+    const result = await fetch("/api/spotifyToken", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+    })
+    const data = await result.json();
+    const token = data.access_token
+    setToken(token);
+    console.log(token)
+  }
 
   async function search(event) {
     if (event.key === 'Enter') {
       event.preventDefault();
-      console.log("Search function triggered, searchInput:", searchInput);
-
       let response = await fetch(`https://api.spotify.com/v1/search?q=${searchInput}&type=album`, {
         method: "GET",
         headers: {
@@ -58,25 +58,12 @@ export default function App() {
     }
 
       const data = await response.json();
-      console.log("Fetched Data:", data);
 
       const album = data.albums.items;
-      console.log("Album:", album)
       
         if (!album) {
           console.log("No Album!!!! :((")
         }
-        // const artist = album.artists[0].name;
-        // const title = album.name;
-        // const id = Date.now();
-        // const cover = album.images[0].url;
-        // const year = album.release_date;
-        // const url = album.external_urls.spotify;
-
-        // const albumPckg = {artist: artist, title: title, id: id, cover: cover, year: year, url: url};
-        // console.log("Navigating to /album with data:", albumPckg);
-
-        // navigate('/album', {state: albumPckg});
         navigate('/search', {state: {album}})
       }
     }

@@ -64,12 +64,12 @@ const verifyAuth = async (req, res, next) => {
 
 
 // Get Ratings
-apiRouter.get('/ratings', verifyAuth, (_req, res) => {
+apiRouter.get('/ratings', (_req, res) => {
     res.json(ratings);
 });
 
 // Submit Rating
-apiRouter.post('/rating', verifyAuth, (req, res) => {
+apiRouter.post('/rating', (req, res) => {
     ratings = postRating(req.body);
     res.send(ratings);
 });
@@ -77,13 +77,14 @@ apiRouter.post('/rating', verifyAuth, (req, res) => {
 // Get Access Token
 apiRouter.post('/spotifyToken', async (_req, res) => {
 
-    await fetch("https://accounts.spotify.com/api/token", {
+    result = await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {"Content-Type": "application/x-www-form-urlencoded"},
         body: `grant_type=client_credentials&client_id=${clientID}&client_secret=${clientSecret}`
     })
 
     result = await result.json();
+    console.log(result)
 
     res.send(result)
     });

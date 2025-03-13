@@ -96,11 +96,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - I installed node, and the default port is port 3000.
 - [x] **Static middleware for frontend** - My service is using static middleware to serve up my frontend files. 
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
+- [x] **Calls to third party endpoints** - My backend calls the Spotify endpoints to create an auth token. 
 - [X] **Backend service endpoints** - I created endpoints like getRatings, and submitRatings, as well as endpoints for authentication.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
+- [x] **Frontend calls service endpoints** - My frontend calls spotify to grab album data, and to search the spotify catalog. 
 
 ## 🚀 DB/Login deliverable
 
