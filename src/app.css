@@ -30,6 +30,10 @@ footer a {
     color:#78c2ea
 }
 
+.button {
+    justify-content: center;
+}
+
 header {
     background-color: #181818;
     padding: 1em;
@@ -41,7 +45,7 @@ header {
 }
 
 .login {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #fe9f39;
