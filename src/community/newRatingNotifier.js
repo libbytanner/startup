@@ -1,7 +1,7 @@
 class Rating {
     constructor(value) {
         this.id = value.id;
-        this.user = value.name;
+        this.user = value.user;
         this.title = value.title;
         this.artist = value.artist;
         this.rating = value.rating;
@@ -31,7 +31,7 @@ class NewRatingNotifier {
                 rating: rating, 
                 rating_date: date, 
                 url: "www.spotify.com", 
-                user: "cool person"
+                user: "cool person",
             };
 
             this.broadcastEvent(newAlbum)

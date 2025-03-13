@@ -68,12 +68,12 @@ const verifyAuth = async (req, res, next) => {
 
 
 // Get Ratings
-apiRouter.get('/ratings', (_req, res) => {
+apiRouter.get('/ratings', verifyAuth, (_req, res) => {
     res.json(ratings);
 });
 
 // Submit Rating
-apiRouter.post('/rating', (req, res) => {
+apiRouter.post('/rating', verifyAuth, (req, res) => {
     ratings = postRating(req.body);
     res.send(ratings);
 });
