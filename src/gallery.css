@@ -8,7 +8,7 @@
 }
 .card {
     width: 15em;
-    border-radius: 6px !important;
+    border-radius: 10px !important;
     box-shadow: -10px -10px #181818;
 }
 .card p {
@@ -22,9 +22,6 @@
 }
 #cover {
     border-radius: 4%;
-    border-color: #181818;
-    border-style: solid;
-    border-width: 5px;
 }
 
 .card .icon {
@@ -47,3 +44,5 @@
         justify-self: center;
     }
 }
+
+/* http://localhost:3000/callback for callback URI for testing */
