@@ -92,3 +92,10 @@ Backend service and Frontend are separate files. The frontend makes calls to the
 
 MAILINATOR  
 
+## Database Notes  
+
+There are different database services that do different things, MongoDB stores objects as JSON.  
+
+Query database in a separate file, then call those functions from your service endpoints. 
+
+To query the database, use filters like $lt, $gte, etc. You can find, insert, and update JSON objects within the database. 
