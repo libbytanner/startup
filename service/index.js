@@ -128,6 +128,6 @@ function postRating(rating_json) {
     return ratings;
 }
 
-app.listen(port, ()=> {
+const httpService = app.listen(port, ()=> {
     console.log(`Listening on port ${port}`)
 })
