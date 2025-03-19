@@ -38,7 +38,7 @@ async function addRating(rating) {
 }
 
 async function getRatings() {
-    const cursor = ratings.find();
+    const cursor = ratings.find().sort({ id: -1 });
     const ratingsList = await cursor.toArray();
     return ratingsList;
 }
