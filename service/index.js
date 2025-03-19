@@ -3,6 +3,12 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const uuid = require('uuid');
 const app = express();
+const DB = require("./database.js");
+const config = require('./dbConfig.json');
+
+clientID = config.clientID;
+clientSecret = config.clientSecret;
+
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 const authCookieName = 'token';
@@ -64,12 +70,12 @@ const verifyAuth = async (req, res, next) => {
 
 
 // Get Ratings
-apiRouter.get('/ratings', verifyAuth, (_req, res) => {
+apiRouter.get('/ratings', (_req, res) => {
     res.json(ratings);
 });
 
 // Submit Rating
-apiRouter.post('/rating', verifyAuth, (req, res) => {
+apiRouter.post('/rating', (req, res) => {
     ratings = postRating(req.body);
     res.send(ratings);
 });
