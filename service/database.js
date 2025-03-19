@@ -37,16 +37,11 @@ async function addRating(rating) {
     await ratings.insertOne(rating);
 }
 
-function getUserRatings(username) {
-    const cursor = ratings.find({ user: username });
-    return cursor.toArray();
+async function getRatings() {
+    const cursor = ratings.find();
+    const ratingsList = await cursor.toArray();
+    return ratingsList;
 }
-
-function getRatings() {
-    const cursor = ratings.find({ limit: 25 });
-    return cursor.toArray();
-}
-
 
 module.exports = {
     getUser,
@@ -54,6 +49,5 @@ module.exports = {
     createUser,
     updateUser,
     addRating,
-    getUserRatings,
     getRatings,
 }

@@ -17,7 +17,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'));
 
-let ratings = [];
 
 var apiRouter = express.Router();
 app.use('/api', apiRouter);
@@ -71,13 +70,14 @@ const verifyAuth = async (req, res, next) => {
 
 
 // Get Ratings
-apiRouter.get('/ratings', (_req, res) => {
+apiRouter.get('/ratings', async (_req, res) => {
+    const ratings = await DB.getRatings();
     res.json(ratings);
 });
 
 // Submit Rating
 apiRouter.post('/rating', (req, res) => {
-    ratings = postRating(req.body);
+    const ratings = postRating(req.body);
     res.send(ratings);
 });
 
@@ -134,7 +134,7 @@ function setAuthCookie(res, authToken) {
 }
 
 function postRating(rating_json) {
-    ratings.unshift(rating_json);
+    DB.addRating(rating_json);
     return ratings;
 }
 
