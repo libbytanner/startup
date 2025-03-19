@@ -29,8 +29,8 @@ apiRouter.post('/auth/create', async (req, res) => {
         res.status(409).send({ msg: "Existing user" })
     } else {
         const user = await createUser(req.body.username, req.body.password)
-        setAuthCookie(res, user.token)
-        res.send({ username: user.username })
+        setAuthCookie(res, user.token);
+        res.send({ username: user.username });
     }
 })
 
@@ -40,6 +40,7 @@ apiRouter.post('/auth/login', async (req, res) => {
     if (user) {
         if (await bcrypt.compare(req.body.password, user.password)) {
             user.token = uuid.v4();
+            await DB.updateUser(user);
             setAuthCookie(res, user.token);
             res.status(200).send({ username: user.username});
             return;
@@ -53,6 +54,7 @@ apiRouter.delete('/auth/logout', async (req, res) => {
     const user = await findUser('token', req.cookies[authCookieName])
     if (user) {
         delete user.token;
+        DB.updateUser(user);
     }
     res.clearCookie(authCookieName);
     res.status(204).end();
@@ -71,6 +73,7 @@ const verifyAuth = async (req, res, next) => {
 
 // Get Ratings
 apiRouter.get('/ratings', (_req, res) => {
+    const ratings = getRatings();
     res.json(ratings);
 });
 
@@ -106,7 +109,10 @@ app.use((_req, res) => {
 });
 
 async function findUser(field, value) {
-    return users.find((u) => u[field] === value);
+    if (field === 'token') {
+        return DB.getUserByToken(value);
+    };
+    return DB.getUser(value);
 }
 
 async function createUser(username, password) {
@@ -116,10 +122,19 @@ async function createUser(username, password) {
         password: passwordHash,
         token: uuid.v4(),
     };
-    users.push(user);
+    DB.createUser(user);
     return user;
 }
 
+async function getRatings(username) {
+    const ratings = await DB.getRatings();
+    return ratings;
+}
+
+async function postRating(rating_json) {
+    const ratings = await DB.addRating(rating_json);
+    return ratings;
+}
 
 function setAuthCookie(res, authToken) {
     res.cookie(authCookieName, authToken, {
@@ -129,10 +144,6 @@ function setAuthCookie(res, authToken) {
     });
 }
 
-function postRating(rating_json) {
-    ratings.unshift(rating_json);
-    return ratings;
-}
 
 const httpService = app.listen(port, ()=> {
     console.log(`Listening on port ${port}`)
