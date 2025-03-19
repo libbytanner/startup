@@ -5,7 +5,7 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url);
 const db = client.db('soundscope');
 const users = db.collection('users');
-const ratings = db.collections('ratings');
+const ratings = db.collection('ratings');
 
 (async function testConnection() {
     try {
@@ -34,7 +34,7 @@ async function updateUser(user) {
 }
 
 async function addRating(rating) {
-    await ratings.insertOne({rating})
+    await ratings.insertOne(rating);
 }
 
 function getUserRatings(username) {
@@ -43,10 +43,7 @@ function getUserRatings(username) {
 }
 
 function getRatings() {
-    const options = {
-        limit: 25
-    };
-    const cursor = ratings.find(options);
+    const cursor = ratings.find({ limit: 25 });
     return cursor.toArray();
 }
 

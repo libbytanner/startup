@@ -37,6 +37,8 @@ export function Community() {
         <div className="card-body">
           <h5 className="card-title">{album.title}</h5>
           <p className="card-text">{album.artist}</p>
+          <br/>
+          <p className="card-text">{album.release_date}</p>
           <span className="icon"><img src="icon.svg" width="25px"/></span>
         </div>
         <ul className="list-group list-group-flush">

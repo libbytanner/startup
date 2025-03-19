@@ -17,7 +17,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'));
 
-let users = [];
 let ratings = [];
 
 var apiRouter = express.Router();
@@ -73,7 +72,6 @@ const verifyAuth = async (req, res, next) => {
 
 // Get Ratings
 apiRouter.get('/ratings', (_req, res) => {
-    const ratings = getRatings();
     res.json(ratings);
 });
 
@@ -126,15 +124,6 @@ async function createUser(username, password) {
     return user;
 }
 
-async function getRatings(username) {
-    const ratings = await DB.getRatings();
-    return ratings;
-}
-
-async function postRating(rating_json) {
-    const ratings = await DB.addRating(rating_json);
-    return ratings;
-}
 
 function setAuthCookie(res, authToken) {
     res.cookie(authCookieName, authToken, {
@@ -144,6 +133,10 @@ function setAuthCookie(res, authToken) {
     });
 }
 
+function postRating(rating_json) {
+    ratings.unshift(rating_json);
+    return ratings;
+}
 
 const httpService = app.listen(port, ()=> {
     console.log(`Listening on port ${port}`)

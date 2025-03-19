@@ -38,7 +38,6 @@ export default function App() {
     const data = await result.json();
     const token = data.access_token
     setToken(token);
-    console.log(token)
   }
 
   async function search(event) {
@@ -51,7 +50,7 @@ export default function App() {
           Authorization: "Bearer " + spotifyToken,
         }
       });
-      console.log("Response recieved:", response);
+      // console.log("Response recieved:", response);
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
