@@ -99,3 +99,5 @@ There are different database services that do different things, MongoDB stores o
 Query database in a separate file, then call those functions from your service endpoints. 
 
 To query the database, use filters like $lt, $gte, etc. You can find, insert, and update JSON objects within the database. 
+
+Its pretty easy to switch from memory to database, MongoDB is easy to use. 
