@@ -29,3 +29,5 @@ function peerProxy(server) {
   }, 15000)
 
 }
+
+module.exports = { peerProxy }
