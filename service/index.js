@@ -5,6 +5,7 @@ const uuid = require('uuid');
 const app = express();
 const DB = require("./database.js");
 const config = require('./dbConfig.json');
+const { peerProxy } = require('./peerProxy.js');
 
 clientID = config.clientID;
 clientSecret = config.clientSecret;
@@ -141,3 +142,5 @@ function postRating(rating_json) {
 const httpService = app.listen(port, ()=> {
     console.log(`Listening on port ${port}`)
 })
+
+peerProxy(httpService)

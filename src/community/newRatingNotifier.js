@@ -17,30 +17,20 @@ class NewRatingNotifier {
     handlers = [];
 
     constructor() {
-        setInterval(() => {
-            const rating = Math.floor(Math.random() * 10) + 1;
-            const date = new Date().toLocaleDateString();
-            const username = 'cool person';
-
-            const newAlbum = {
-                title: "Good Album",
-                id: Date.now(), 
-                cover: "placeholder.png", 
-                artist: "good band", 
-                release_date: "2025", 
-                rating: rating, 
-                rating_date: date, 
-                url: "www.spotify.com", 
-                user: "cool person",
-            };
-
-            this.broadcastEvent(newAlbum)
-        }, 15000);
+        let port = window.location.port;
+        const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+        this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
+        this.socket.onmessage = async (msg) => {
+            try {
+                const rating = JSON.parse(await msg.data.text());
+                this.receiveEvent(rating);
+            } catch {}
+        };
     }
 
     broadcastEvent(value) {
         const newRating = new Rating(value);
-        this.receiveEvent(newRating);
+        this.socket.send(JSON.stringify(newRating));
     }
 
     addHandler(handler) {
@@ -55,9 +45,11 @@ class NewRatingNotifier {
     receiveEvent(newRating) {
         this.ratings.push(newRating);
 
-        this.handlers.forEach((handler) => {
-            handler(newRating);
+        this.ratings.forEach((rating) => {
+            this.handlers.forEach((handler) => {
+            handler(rating);
           });
+        });
     }
 }
 

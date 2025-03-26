@@ -1,7 +1,7 @@
 const { WebSocketServer } = require('ws');
 
 function peerProxy(server) {
-  const socketServer = newWebSocketServer({ server });
+  const socketServer = new WebSocketServer({ server });
 
   socketServer.on('connection', (socket) => {
       socket.isAlive = true;
@@ -31,3 +31,9 @@ function peerProxy(server) {
 }
 
 module.exports = { peerProxy }
+
+
+// How do I want this to work:
+// Notified of new ratings
+// Display ratings from database
+// current users or nah? -- yes if gonna add commenting functionality. 
