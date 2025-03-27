@@ -92,7 +92,6 @@ apiRouter.post('/spotifyToken', async (_req, res) => {
     })
 
     result = await result.json();
-    console.log(result)
 
     res.send(result)
     });
