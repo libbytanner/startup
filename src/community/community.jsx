@@ -4,17 +4,27 @@ import '../gallery.css';
 import { RatingNotifier } from './newRatingNotifier.js'
 
 
-export function Community() {
+export function Community(props) {
 
   const [albums, setAlbums] = React.useState([]);
+  const handleUnread = props.handleUnread;
 
+  React.useEffect(() => {
+    handleUnread();
+  })
+  
   React.useEffect(() => {
     RatingNotifier.addHandler(handleNewRating);
   
     return () => {
-      RatingNotifier.removeHandler(handleNewRating)
+      RatingNotifier.removeHandler(handleNewRating);
     };
   }, [])
+
+  function setLastRead() {
+    last = albums[0].id;
+    localStorage.setItem('lastID', last);
+  }
 
   React.useEffect(() => {
     fetch('/api/ratings')

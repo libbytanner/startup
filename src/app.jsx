@@ -10,14 +10,17 @@ import { Community } from './community/community';
 import { AuthState } from './login/authState';
 import { Album } from './album/album';
 import { Search } from './search/searchResults';
+import { RatingNotifier } from './community/newRatingNotifier.js';
 
 export default function App() {
-  const [username, setUsername] = React.useState(localStorage.getItem('username') || "");
+  const [username, setUsername] = React.useState(localStorage.getItem('username') || '');
   const currentAuthState = username ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
   const [searchInput, setSearchInput] = React.useState('');
   const [spotifyToken, setToken] = React.useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [lastReadID, setLastID] = React.useState(localStorage.getItem('lastID') || '')
+  const [upToDate, setUpToDate] = React.useState(true);
 
   React.useEffect(() => {
     setUsername(username);
@@ -29,6 +32,20 @@ export default function App() {
     }
     
   }, [authState])
+
+  React.useEffect(() => {
+    RatingNotifier.addHandler(unreadRatings);
+
+    return RatingNotifier.removeHandler(unreadRatings);
+  })
+
+  function unreadRatings() {
+    setUpToDate(false);
+  }
+
+  const handleUnread = () => {
+    setUpToDate(true);
+  }
   
   const fetchToken = async() => {
     const result = await fetch("/api/spotifyToken", {
@@ -86,9 +103,9 @@ export default function App() {
                   </li>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="community">Community
-                    <span class="position-absolute p-1 bg-danger rounded-circle">
-                      <span class="visually-hidden">New alerts</span>
-                    </span>
+                    {!upToDate && <span className="position-absolute p-1 bg-danger rounded-circle">
+                      <span className="visually-hidden">New alerts</span>
+                    </span>}
                     </NavLink>
                   </li>
                   <li className="nav-item">
@@ -113,7 +130,7 @@ export default function App() {
             }}
           />} exact />
           <Route path='/ratings' element={<Ratings username={username}/>} />
-          <Route path='/community' element={<Community />} />
+          <Route path='/community' element={<Community handleUnread={handleUnread}/>} />
           <Route path='/album' element={<Album username={username} token={spotifyToken}/>} />
           <Route path='/search' element={<Search />} />
           <Route path='*' element={<NotFound />} />
