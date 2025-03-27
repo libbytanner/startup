@@ -71,13 +71,13 @@ const verifyAuth = async (req, res, next) => {
 
 
 // Get Ratings
-apiRouter.get('/ratings', async (_req, res) => {
+apiRouter.get('/ratings', verifyAuth, async (_req, res) => {
     const ratings = await DB.getRatings();
     res.json(ratings);
 });
 
 // Submit Rating
-apiRouter.post('/rating', (req, res) => {
+apiRouter.post('/rating', verifyAuth, (req, res) => {
     const ratings = postRating(req.body);
     res.send(ratings);
 });

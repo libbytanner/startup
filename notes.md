@@ -101,3 +101,13 @@ Query database in a separate file, then call those functions from your service e
 To query the database, use filters like $lt, $gte, etc. You can find, insert, and update JSON objects within the database. 
 
 Its pretty easy to switch from memory to database, MongoDB is easy to use. 
+
+## WebSocket Notes
+
+Not necessarily websocket but I'm just realizing this. You can have a state variable in your parent component, and then to change it in a child component, pass in a function that changes it as a prop.  
+
+WebSocket Model: With HTTP, you have a user on a browser and a server, the user sends requests to the server, and the server sends a response (if all goes well). With WebSocket, you can enable real-time communication between different users, you upgrade the protocol? 
+
+Set up websocket to listen for messages, when you get a message, recieveMessage,
+
+A handler is essentially a function you want run in the case of a new message (in the simon example)
