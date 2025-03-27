@@ -85,7 +85,11 @@ export default function App() {
                     <NavLink className="nav-link" to="ratings">My Ratings</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="community">Community</NavLink>
+                    <NavLink className="nav-link" to="community">Community
+                    <span class="position-absolute p-1 bg-danger rounded-circle">
+                      <span class="visually-hidden">New alerts</span>
+                    </span>
+                    </NavLink>
                   </li>
                   <li className="nav-item">
                     <form id="search" className="d-flex" role="search">

@@ -67,9 +67,10 @@ header {
     color:#e6612e !important;
 }
 
-#search ul {
-    display: none;
+#search {
+    margin-left: 10px;
 }
+
 @media ((orientation: portrait) and (max-width:600px)){
     footer {
         display: none;
