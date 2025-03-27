@@ -5,7 +5,6 @@ function peerProxy(server) {
   console.log("WebSocket server started, waiting for connections...");
 
   socketServer.on('connection', (socket) => {
-    console.log("new connection");
     socket.isAlive = true;
 
     socket.on('message', function message(data) {
