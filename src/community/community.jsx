@@ -40,7 +40,6 @@ export function Community(props) {
       return newEvents;
     })
   }
-
   const recentRatings = albums.map((album) => (
       <div className="card h-100" key={album.id}>
         <img src={album.cover} id="cover" className="card-img-top" alt="album cover"/>
@@ -48,7 +47,7 @@ export function Community(props) {
           <h5 className="card-title">{album.title}</h5>
           <p className="card-text">{album.artist}</p>
           <br/>
-          <p className="card-text">{album.release_date}</p>
+          <p className="card-text">{album.release_date.split('-')[0]}</p>
           <span className="icon"><img src="icon.svg" width="25px"/></span>
         </div>
         <ul className="list-group list-group-flush">

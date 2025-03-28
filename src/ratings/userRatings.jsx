@@ -24,11 +24,11 @@ export function Ratings(props) {
               <h5 className="card-title">{album.title}</h5>
               <p className="card-text">{album.artist}</p>
               <br/>
-              <p className="card-text">{album.release_date}</p>
+              <p className="card-text">{album.release_date.split('-')[0]}</p>
               <span className="icon"><img src="icon.svg" width="25px"/></span>
             </div>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">Rating: {album.rating}</li>
+              <li className="list-group-item">Rating: {album.rating}/10</li>
               <li className="list-group-item">Date: {album.rating_date}</li>
               <li className="list-group-item button">
                 <a href={album.url} className="btn btn-primary">View Album on Spotify</a>

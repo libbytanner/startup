@@ -5,31 +5,11 @@ import  { RatingNotifier} from '../community/newRatingNotifier.js'
 
 
 export function Album(props) {
-  // const [albumTitle, setAlbumTitle] = React.useState('Title')
-  // const [imageUrl, setImageUrl] = React.useState('placeholder.png');
-  // const [artist, setArtist] = React.useState('Artist');
-  // const [year, setYear] = React.useState('Year');
   const [rating, updateRating] = React.useState('5');
-  const [albumUrl, setAlbumUrl] = React.useState('spotify.com')
-  // const [albumId, setAlbumId] = React.useState('Key')
   const username = props.username;
   const navigate = useNavigate();
   const location = useLocation();
   const album = location.state;
-
-  // React.useEffect(() => {
-  //       setAlbumTitle(album.title);
-  //       setImageUrl(album.cover); 
-  //       setArtist(album.artists[0].name);
-  //       setYear(album.release_date);
-  //       // setAlbumUrl(album.external_urls.spotify);
-  //     })
-    // setAlbumTitle('Album')
-    // setImageUrl('placeholder.png');
-    // setArtist('Artist');
-    // setYear('Year');
-    // setAlbumUrl('https://open.spotify.com');
-    // setAlbumId(Date.now())
 
 
   function onChange(e) {
@@ -43,7 +23,7 @@ export function Album(props) {
       id: album.id, 
       cover: album.cover, 
       artist: album.artist, 
-      release_date: album.year, 
+      release_date: album.year,
       rating: rating, 
       rating_date: date, 
       url: album.url, 

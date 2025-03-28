@@ -116,8 +116,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [] **Backend listens for WebSocket connection** - .
+- [x] **Frontend makes WebSocket connection** - In community.jsx and app.jsx, the frontend makes WebSocket connection, listening for new ratings submitted. 
+- [x] **Data sent over WebSocket connection** - 
+- [x] **WebSocket data displayed** - Users can see new ratings on the community tab in real time, without having to refresh the page, and a badge comes on the community tab (when elsewhere on the app) that notifies the user that new ratings have been submitted. 
+- [x] **Application is fully functional** - It is done!
