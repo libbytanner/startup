@@ -32,9 +32,3 @@ function peerProxy(server) {
 }
 
 module.exports = { peerProxy }
-
-
-// How do I want this to work:
-// Notified of new ratings
-// Display ratings from database
-// current users or nah? -- yes if gonna add commenting functionality. 
