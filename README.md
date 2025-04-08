@@ -119,5 +119,5 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Backend listens for WebSocket connection** - In service/peerProxy.js I set up a WebSocket connection. 
 - [x] **Frontend makes WebSocket connection** - In src/community/newRatingNotifier.js, the frontend makes WebSocket connection, listening for new ratings submitted. 
 - [x] **Data sent over WebSocket connection** - New ratings are sent over a WebSocket connection
-- [x] **WebSocket data displayed** - Users can see new ratings on the community tab in real time, without having to refresh the page, and a badge comes on the community tab (when elsewhere on the app) that notifies the user when new ratings have been submitted. 
+- [x] **WebSocket data displayed** - Users can see new ratings on the community tab in real time, without having to refresh the page, and a badge comes on the community tab (when elsewhere on the app) that notifies the user that new ratings have been submitted. 
 - [x] **Application is fully functional** - It is done!
