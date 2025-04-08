@@ -19,13 +19,14 @@ as well as for the page to leave ratings */
 
 #albumCover {
     float:left;
-    min-width: 400px;
+    width: 500px;
     display: inline-flex;
     border-style: solid;
     border-width: 10px;
     box-shadow: -10px -10px #181818;
     border-radius: 4%;
     margin: 30px;
+    
 }
 
 #submit {
@@ -72,7 +73,7 @@ as well as for the page to leave ratings */
     background-color: #e6612e !important;
 }
 
-@media ((orientation: portrait)) and (max-width:600px){
+@media ((orientation: portrait)) and (max-width:700px){
     main {
         display: flex;
         flex-direction: column;

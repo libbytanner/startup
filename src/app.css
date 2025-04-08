@@ -12,6 +12,7 @@ main {
     padding: 3em;
     flex-grow: 1;
     background-color: #78c2ea !important;
+    overflow-x: auto;
 
 }
 
