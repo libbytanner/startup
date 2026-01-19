@@ -70,8 +70,14 @@ header {
     margin-left: 10px;
 }
 
-#note {
+.note {
+    margin:0;
     font-size:smaller;
+}
+
+#note_block {
+    margin-bottom: 10px;
+    margin-top: 0px;
 }
 
 @media ((orientation: portrait) and (max-width:600px)){
