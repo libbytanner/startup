@@ -41,8 +41,7 @@ export function Unauthenticated(props) {
         <p>Please log in or create an account</p>
         <div id="note">
           <p>*Note: For just checking out the app, you can use:</p>
-          <p>username: example</p>
-          <p>password: 123</p>
+          <p>username: example password: 123</p>
         </div>
         <form method="get" to="ratings" className="login-form">
           <div className="input-group mb-3" id="username">
