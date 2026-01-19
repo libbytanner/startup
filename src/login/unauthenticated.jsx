@@ -39,9 +39,11 @@ export function Unauthenticated(props) {
         <div className="login">
         <h1>Welcome to SoundScope!</h1>
         <p>Please log in or create an account</p>
-        <p id="note">*Note: For just checking out the app, you can use:</p>
-        <p>username: example</p>
-        <p>password: 123</p>
+        <div id="note">
+          <p>*Note: For just checking out the app, you can use:</p>
+          <p>username: example</p>
+          <p>password: 123</p>
+        </div>
         <form method="get" to="ratings" className="login-form">
           <div className="input-group mb-3" id="username">
             <span className="input-group-text">✉</span>
