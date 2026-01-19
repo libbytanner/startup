@@ -70,6 +70,10 @@ header {
     margin-left: 10px;
 }
 
+#note {
+    font-size:smaller;
+}
+
 @media ((orientation: portrait) and (max-width:600px)){
     footer {
         display: none;
